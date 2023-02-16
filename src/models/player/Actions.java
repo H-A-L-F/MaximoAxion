@@ -6,6 +6,7 @@ public enum Actions {
 	
 	WOOD_GATHER,
 	BUILD_SHELTER,
+	IMPROVE_SHELTER,
 	
 	FOOD_GATHER,
 	FOOD_CONSUME,
