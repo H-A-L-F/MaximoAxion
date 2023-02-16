@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Optional;
+
 import models.user.User;
 import modules.ConsoleInput;
 import modules.Database;
@@ -7,6 +9,7 @@ import modules.Database;
 public class Main {
 	private ConsoleInput in = new ConsoleInput();
 	private Database db = Database.getInstance();
+	private GameMaster gm;
 
 	public Main() {
 		menuHome();
@@ -57,7 +60,17 @@ public class Main {
 	}
 	
 	private void play() {
+		String username = in.getStrWMSG("Enter username [5..20]: ", 5, 20);
+		String password = in.getStrWMSG("Enter password [5..20]: ", 5, 20);
 		
+		Optional<User> res = db.findUser(username, password);
+		if(res.isPresent()) {
+			gm = new GameMaster(res.get());
+			gm.newGame();
+		}
+		
+		System.out.println("User not found...");
+		in.pressEnter();
 	}
 	
 	private void register() {

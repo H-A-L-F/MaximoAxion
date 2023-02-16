@@ -1,5 +1,6 @@
 package modules;
 
+import java.util.Optional;
 import java.util.Vector;
 
 import models.user.User;
@@ -27,5 +28,9 @@ public class Database {
 	
 	public boolean findUsername(String username) {
 		return users.stream().anyMatch(u -> u.getUsername().equals(username));
+	}
+	
+	public Optional<User> findUser(String username, String passsword) {
+		return users.stream().filter(u -> u.getUsername().equals(username) && u.getPassword().equals(passsword)).findFirst();
 	}
 }
