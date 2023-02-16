@@ -1,0 +1,22 @@
+package models.player;
+
+public enum Actions {
+	EXPLORE,
+	REST,
+	
+	WOOD_GATHER,
+	BUILD_SHELTER,
+	
+	FOOD_GATHER,
+	FOOD_CONSUME,
+	
+	WATER_GATHER,
+	WATER_CONSUME,
+	
+	HERBS_GATHER,
+	HERBS_CONSUME,
+	
+	ATTACK,
+	DEFEND,
+	FLEE
+}

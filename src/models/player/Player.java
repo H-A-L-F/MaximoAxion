@@ -36,6 +36,10 @@ public class Player {
 	}
 	
 	public void printResources() {
-		
+		System.out.println("Resources:");
+		System.out.println("- Wood: " + wood);
+		System.out.println("- Food: " + food);
+		System.out.println("- Water: " + water);
+		System.out.println("- Herb: " + herb);
 	}
 }
