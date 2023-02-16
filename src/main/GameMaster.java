@@ -1,5 +1,9 @@
 package main;
 
-public class GameMaster {
+import models.player.Player;
+import models.user.User;
 
+public class GameMaster {
+	public User user;
+	public Player player;
 }
