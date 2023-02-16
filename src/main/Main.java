@@ -1,14 +1,12 @@
 package main;
 
-import java.util.Scanner;
-
 import modules.ConsoleInput;
 
 public class Main {
 	private ConsoleInput in = new ConsoleInput();
 	
 	public Main() {
-		
+		menuHome();
 	}
 	
 	public void printTitle() {
@@ -32,6 +30,8 @@ public class Main {
 		boolean run = true;
 		int opt = 0;
 		
+		printTitle();
+		in.pressEnter();
 		while (run) {
 			optHome();
 			opt = in.getIntWMSG(">> ", 1, 5);
