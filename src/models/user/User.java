@@ -16,7 +16,7 @@ public class User {
 		String arr[] = user.split("#");
 		this.username = arr[0];
 		this.password = arr[1];
-		this.day = Integer.parseInt([2]);
+		this.day = Integer.parseInt(arr[2]);
 	}
 	
 	public String serialize() {
