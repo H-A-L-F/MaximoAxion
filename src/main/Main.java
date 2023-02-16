@@ -1,9 +1,12 @@
 package main;
 
+import models.user.User;
 import modules.ConsoleInput;
+import modules.Database;
 
 public class Main {
 	private ConsoleInput in = new ConsoleInput();
+	private Database db = Database.getInstance();
 
 	public Main() {
 		menuHome();
@@ -58,7 +61,15 @@ public class Main {
 	}
 	
 	private void register() {
+		String username;
+		while(true) {
+			username = in.getStrWMSG("Enter username [5..20]: ", 5, 20);
+			if(!db.findUsername(username)) break;
+		}
 		
+		String password = in.getStrWMSG("Enter password [5..20]: ", 5, 20);
+		
+		Database.writeData(new User(username, password).serialize());
 	}
 	
 	private void highscore() {

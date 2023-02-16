@@ -1,5 +1,7 @@
 package models.user;
 
+import modules.Database;
+
 public class User {
 	private String username;
 	private String password;
@@ -30,4 +32,33 @@ public class User {
 		
 		return res.toString();
 	}
+	
+	public void saveUser() {
+		Database.writeData(this.serialize());
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int day) {
+		this.day = day;
+	}
+	
 }
