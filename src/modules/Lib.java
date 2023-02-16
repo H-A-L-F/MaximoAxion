@@ -20,4 +20,6 @@ public class Lib {
 		double res = amt / tot;
 		return (int) res * 100;
 	}
+	
+	
 }
