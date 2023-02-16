@@ -1,5 +1,6 @@
 package main;
 
+import java.util.List;
 import java.util.Optional;
 
 import models.user.User;
@@ -86,7 +87,15 @@ public class Main {
 	}
 	
 	private void highscore() {
+		List<User> users = db.getTopScore(3);
 		
+		System.out.println("========Highscore========");
+		for (User user : users) {
+			System.out.printf("%-20s: %3d\n", user.getUsername(), user.getDay());
+		}
+		System.out.printf("\n\n\n");
+		
+		in.pressEnter();
 	}
 	
 	public static void main(String[] args) {
