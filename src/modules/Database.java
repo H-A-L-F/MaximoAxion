@@ -1,6 +1,10 @@
 package modules;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Comparator;
@@ -19,6 +23,8 @@ public class Database {
 	
 	private Database() {
 		users = new Vector<>();
+		
+		loadData();
 	}
 	
 	public static Database getInstance() {
@@ -27,10 +33,23 @@ public class Database {
 	}
 	
 	public void loadData() {
-		
+        File file = new File(FILE_NAME);
+ 
+        BufferedReader br;
+		try {
+			br = new BufferedReader(new FileReader(file));
+			String st;
+	        while ((st = br.readLine()) != null) {
+	        	users.add(new User(st));
+	        }
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	public static void writeData(String str) {
+	public void saveDatabase() {
 		
 	}
 	
@@ -44,6 +63,10 @@ public class Database {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void saveUser(User user) {
+		this.users.add(user);
 	}
 	
 	public boolean findUsername(String username) {

@@ -1,7 +1,5 @@
 package models.user;
 
-import modules.Database;
-
 public class User {
 	private String username;
 	private String password;
@@ -31,10 +29,6 @@ public class User {
 		res.append(day);
 		
 		return res.toString();
-	}
-	
-	public void saveUser() {
-		Database.writeData(this.serialize());
 	}
 
 	public String getUsername() {
