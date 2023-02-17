@@ -90,7 +90,7 @@ public class Database {
 		}
 	}
 
-	public void saveUser(User user) {
+	public void addUser(User user) {
 		this.users.add(user);
 	}
 

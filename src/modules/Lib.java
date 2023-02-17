@@ -22,6 +22,6 @@ public class Lib {
 	}
 	
 	public static void clear() {
-		for(int i = 0; i < 25; i++) System.out.println();
+		for(int i = 0; i < 50; i++) System.out.println();
 	}
 }

@@ -57,8 +57,10 @@ public class Main {
 				break;
 			default:
 				run = false;
+				db.saveDatabase();
 				break;
 			}
+			Lib.clear();
 		}
 	}
 	
@@ -70,6 +72,7 @@ public class Main {
 		if(res.isPresent()) {
 			gm = new GameMaster(res.get());
 			gm.newGame();
+			return;
 		}
 		
 		System.out.println("User not found...");
@@ -85,7 +88,7 @@ public class Main {
 		
 		String password = in.getStrWMSG("Enter password [5..20]: ", 5, 20);
 		
-		Database.appendData(new User(username, password).serialize());
+		db.addUser(new User(username, password));
 	}
 	
 	private void highscore() {
