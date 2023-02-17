@@ -6,6 +6,7 @@ import java.util.Optional;
 import models.user.User;
 import modules.ConsoleInput;
 import modules.Database;
+import modules.Lib;
 
 public class Main {
 	private ConsoleInput in = new ConsoleInput();
@@ -39,6 +40,7 @@ public class Main {
 		
 		printTitle();
 		in.pressEnter();
+		Lib.clear();
 		while (run) {
 			optHome();
 			opt = in.getIntWMSG(">> ", 1, 5);

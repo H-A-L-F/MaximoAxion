@@ -27,6 +27,7 @@ public class User {
 		res.append(password);
 		res.append("#");
 		res.append(day);
+		res.append("\n");
 		
 		return res.toString();
 	}

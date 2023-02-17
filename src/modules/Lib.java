@@ -21,5 +21,7 @@ public class Lib {
 		return (int) res * 100;
 	}
 	
-	
+	public static void clear() {
+		for(int i = 0; i < 25; i++) System.out.println();
+	}
 }
