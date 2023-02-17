@@ -2,5 +2,6 @@ package models.world;
 
 public enum WorldStatus {
 	FLOOD,
-	DROUGHT
+	DROUGHT,
+	PANDEMIC,
 }
