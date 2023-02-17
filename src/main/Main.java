@@ -83,7 +83,7 @@ public class Main {
 		
 		String password = in.getStrWMSG("Enter password [5..20]: ", 5, 20);
 		
-		Database.writeData(new User(username, password).serialize());
+		Database.appendData(new User(username, password).serialize());
 	}
 	
 	private void highscore() {

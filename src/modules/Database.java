@@ -1,5 +1,8 @@
 package modules;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +14,8 @@ import models.user.User;
 public class Database {
 	private Vector<User> users;
 	private static Database instance;
+	
+	private static final String FILE_NAME = "save.txt";
 	
 	private Database() {
 		users = new Vector<>();
@@ -27,6 +32,18 @@ public class Database {
 	
 	public static void writeData(String str) {
 		
+	}
+	
+	public static void appendData(String str) {
+	    BufferedWriter bw;
+		try {
+			bw = new BufferedWriter(new FileWriter(FILE_NAME, true));
+		    bw.append(str);
+		    
+		    bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public boolean findUsername(String username) {
