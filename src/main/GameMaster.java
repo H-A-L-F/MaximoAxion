@@ -17,8 +17,22 @@ public class GameMaster {
 	}
 	
 	public void initGame() {
-		this.world = new World();
+		this.world = new World(this);
 		this.player = new Player();
+	}
+	
+	private void updateScreen() {
+		world.printWorld();
+		player.printActions();
+	}
+	
+	private void startScreen() {
+		world.printDay();
+		System.out.println();
+	}
+	
+	public void notifyStatusChange() {
+		updateScreen();
 	}
 	
 	public void newGame() {
@@ -27,7 +41,8 @@ public class GameMaster {
 	}
 	
 	public void play() {
-		
+		startScreen();
+		world.startWorld();
 	}
 	
 	public void exit() {

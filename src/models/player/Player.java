@@ -42,4 +42,8 @@ public class Player {
 		System.out.println("- Water: " + water);
 		System.out.println("- Herb: " + herb);
 	}
+	
+	public void printActions() {
+		
+	}
 }

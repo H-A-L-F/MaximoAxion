@@ -5,10 +5,12 @@ import modules.ThreadPoolManager;
 
 public abstract class WorldStateController<T> {
 	protected ThreadPoolManager tp = ThreadPoolManager.getInstance();
+	protected World world;
 	
 	protected StateTask<T> stateTask;
 	
-	public WorldStateController(T initState) {
+	public WorldStateController(World world, T initState) {
+		this.world = world;
 		initStateTask(initState);
 	}
 	
