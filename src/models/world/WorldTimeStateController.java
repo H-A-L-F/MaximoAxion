@@ -1,5 +1,5 @@
 package models.world;
 
-public class WorldTimeStateController {
+public class WorldTimeStateController extends WorldStateController<WorldTimes> {
 
 }
