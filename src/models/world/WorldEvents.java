@@ -1,5 +1,8 @@
 package models.world;
 
+import java.util.Arrays;
+import java.util.Vector;
+
 public enum WorldEvents {
 	WORLD_NORMAL("The world is peaceful and everything seems to be in order."),
 
@@ -24,5 +27,21 @@ public enum WorldEvents {
 	
 	public String getMessage() {
 		return this.message;
+	}
+	
+	public static Vector<WorldEvents> getEventsNone() {
+		return new Vector<>(Arrays.asList(WORLD_NORMAL));
+	}
+	
+	public static Vector<WorldEvents> getEventsNeutral() {
+		return new Vector<>(Arrays.asList(VOLCANIC_ERUPTION, MASSIVE_THUNDERSTORM, MASSIVE_BIRD_MIGRATION, MASSIVE_EARTHQUAKE));
+	}
+	
+	public static Vector<WorldEvents> getEventsDay() {
+		return new Vector<>(Arrays.asList(SOLAR_ECLIPSE, SCORCHING_SUN));
+	}
+	
+	public static Vector<WorldEvents> getEventsNight() {
+		return new Vector<>(Arrays.asList(BLOOD_MOON, MASSIVE_BATS_INVASION, ALIEN_INVASION, BLACKOUT));
 	}
 }
