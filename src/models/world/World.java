@@ -62,4 +62,10 @@ public class World {
 		
 		notifyStatusChange();
 	}
+	
+	public void dayPass() {
+		day++;
+		
+		gm.dayPass();
+	}
 }

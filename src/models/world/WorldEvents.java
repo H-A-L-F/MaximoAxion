@@ -1,5 +1,9 @@
 package models.world;
 
 public enum WorldEvents {
-	BLOOD_MOON
+	VOLCANIC_ERUPTION,
+	
+	SOLAR_ECLIPSE,
+	
+	BLOOD_MOON;
 }

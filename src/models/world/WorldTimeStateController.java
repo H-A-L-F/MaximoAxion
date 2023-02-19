@@ -30,10 +30,16 @@ public class WorldTimeStateController extends WorldStateController<WorldTimes> {
 	
 	@Override
 	protected void initStateTask(WorldTimes initState) {
-		this.stateTask = new StateTask<WorldTimes>("WorldTimeTask", initState) {
+		this.stateTask = new StateTask<WorldTimes>("WorldTimeTask") {
 			
 			public void switchTime() {
-				int idx = (world.wTime.getOrder() + 1) % times.size();
+				int idx = world.wTime.getOrder() + 1;
+				
+				if(idx >= times.size()) {
+					idx = 0;
+					world.dayPass();
+				}
+				
 				WorldTimes temp = times.get(idx);
 				world.switchTime(temp);
 			}

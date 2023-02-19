@@ -35,6 +35,10 @@ public class GameMaster {
 		updateScreen();
 	}
 	
+	public void dayPass() {
+		
+	}
+	
 	public void newGame() {
 		initGame();
 		play();
