@@ -31,6 +31,7 @@ public class WorldTimeStateController extends WorldStateController<WorldTimes> {
 	@Override
 	protected void initStateTask(WorldTimes initState) {
 		this.stateTask = new StateTask<WorldTimes>("WorldTimeTask") {
+			private final int DURATION = 20;
 			
 			public void switchTime() {
 				int idx = world.wTime.getOrder() + 1;
@@ -47,8 +48,7 @@ public class WorldTimeStateController extends WorldStateController<WorldTimes> {
 			@Override
 			public void update() {
 				timePassed++;
-				System.out.println(timePassed);
-				if(timePassed >= 3) {
+				if(timePassed >= DURATION) {
 					timePassed = 0;
 					switchTime();
 				}
