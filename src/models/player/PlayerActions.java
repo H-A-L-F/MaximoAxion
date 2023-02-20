@@ -5,28 +5,42 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Vector;
 
-import models.world.WorldEvents;
-
 public enum PlayerActions {
-	EXPLORE,
-	REST,
+	EXPLORE("Venture out", "You venture out into the unknown, searching for resources and adventure."),
+	REST("Take a break", "You take a break from your journey and rest for a while, regaining your energy."),
+
+	WOOD_GATHER("Gather wood", "You swing your ax and chop some wood from a nearby tree."),
+	BUILD_SHELTER("Build shelter", "You use the wood and other resources you have to build a shelter."),
+	IMPROVE_SHELTER("Improve shelter", "You make some improvements to your shelter to make it more comfortable and secure."),
+
+	FOOD_GATHER("Hunt for food", "You search the nearby area for food and manage to catch a rabbit."),
+	FOOD_CONSUME("Consume food", "You consume some food and feel your strength returning."),
+
+	WATER_GATHER("Collect water", "You find a stream and collect some water in a container."),
+	WATER_CONSUME("Drink water", "You take a drink of water and feel refreshed."),
+
+	HERBS_GATHER("Gather herbs", "You search the area for herbs and find some useful plants."),
+	HERBS_CONSUME("Use herbs", "You use the herbs you collected to make a healing potion and drink it."),
+
+	ATTACK("Prepare to attack", "You take up your weapon and prepare to fight your enemies."),
+	DEFEND("Prepare to defend", "You take a defensive stance, preparing to protect yourself from incoming attacks."),
+	FLEE("Flee from danger", "You run away from danger, hoping to escape and find safety.");
 	
-	WOOD_GATHER,
-	BUILD_SHELTER,
-	IMPROVE_SHELTER,
+	private final String MENU;
+	private final String MSG;
 	
-	FOOD_GATHER,
-	FOOD_CONSUME,
+	PlayerActions(String MENU, String MSG) {
+		this.MENU = MENU;
+		this.MSG = MSG;
+	}
 	
-	WATER_GATHER,
-	WATER_CONSUME,
+	public String getMenu() {
+		return this.MENU;
+	}
 	
-	HERBS_GATHER,
-	HERBS_CONSUME,
-	
-	ATTACK,
-	DEFEND,
-	FLEE;
+	public String getMessage() {
+		return this.MSG;
+	}
 	
 	public static Vector<PlayerActions> getFreeActions() {
 		return new Vector<>(Arrays.asList(EXPLORE, REST));
@@ -61,14 +75,5 @@ public enum PlayerActions {
 				  new AbstractMap.SimpleEntry<ActionTypes, Vector<PlayerActions>>(ActionTypes.HERBS, getHerbsActions()),
 				  new AbstractMap.SimpleEntry<ActionTypes, Vector<PlayerActions>>(ActionTypes.ENCOUNTER, getEncounterActions())
 				);
-	}
-	
-	enum ActionTypes {
-		FREE,
-		WOOD,
-		FOOD,
-		WATER,
-		HERBS,
-		ENCOUNTER
 	}
 }

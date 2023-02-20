@@ -19,12 +19,13 @@ public class GameMaster {
 	
 	public void initGame() {
 		this.world = new World(this);
-		this.player = new Player();
+		this.player = new Player(this);
 	}
 	
 	private void updateScreen() {
 		Lib.clear();
 		world.printWorld();
+		System.out.println();
 		player.printActions();
 	}
 	
@@ -33,6 +34,7 @@ public class GameMaster {
 	}
 	
 	public void notifyStatusChange() {
+		player.notifyStatusChange();
 		updateScreen();
 	}
 	
