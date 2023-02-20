@@ -1,6 +1,6 @@
 package models.player;
 
-public enum Actions {
+public enum PlayerActions {
 	EXPLORE,
 	REST,
 	
