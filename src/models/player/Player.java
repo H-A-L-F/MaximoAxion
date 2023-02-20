@@ -46,6 +46,10 @@ public class Player {
 		this.actController = new PlayerActionController(this, gm.world);
 	}
 	
+	public void handleInput(String str) {
+		
+	}
+	
 	public void notifyStatusChange() {
 		actController.update();
 	}
