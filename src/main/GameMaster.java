@@ -29,8 +29,7 @@ public class GameMaster {
 	}
 	
 	private void startScreen() {
-		world.printDay();
-		System.out.println();
+		dayPass();
 	}
 	
 	public void notifyStatusChange() {
@@ -38,7 +37,11 @@ public class GameMaster {
 	}
 	
 	public void dayPass() {
-		
+		world.printDay();
+		world.printWorld();
+		player.printStats();
+		player.printResources();
+		player.printActions();
 	}
 	
 	public void newGame() {
