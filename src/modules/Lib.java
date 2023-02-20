@@ -1,5 +1,7 @@
 package modules;
 
+import java.util.Random;
+
 public class Lib {
 	public static String intToBar(int amt, int tot) {
 		StringBuilder res = new StringBuilder();
@@ -23,5 +25,12 @@ public class Lib {
 	
 	public static void clear() {
 		for(int i = 0; i < 50; i++) System.out.println();
+	}
+	
+	public static boolean RNG(int chance) {
+		Random rand = new Random();
+		int res = rand.nextInt(100);
+		if(res <= chance) return true;
+		else return false;
 	}
 }

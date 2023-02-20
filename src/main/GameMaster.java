@@ -4,6 +4,7 @@ import models.player.Player;
 import models.user.User;
 import models.world.World;
 import modules.Database;
+import modules.Lib;
 
 public class GameMaster {
 	public World world;
@@ -22,6 +23,7 @@ public class GameMaster {
 	}
 	
 	private void updateScreen() {
+		Lib.clear();
 		world.printWorld();
 		player.printActions();
 	}

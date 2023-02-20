@@ -15,4 +15,6 @@ public abstract class WorldStateController<T> {
 	}
 	
 	protected abstract void initStateTask(T initState);
+	public abstract void start();
+	public abstract void stop();
 }

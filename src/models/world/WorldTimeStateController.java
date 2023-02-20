@@ -12,10 +12,12 @@ public class WorldTimeStateController extends WorldStateController<WorldTimes> {
 		this.times = WorldTimes.getWorldTimes();
 	}
 	
+	@Override
 	public void start() {
 		startTime();
 	}
-	
+
+	@Override
 	public void stop() {
 		stopTime();
 	}
@@ -31,7 +33,7 @@ public class WorldTimeStateController extends WorldStateController<WorldTimes> {
 	@Override
 	protected void initStateTask(WorldTimes initState) {
 		this.stateTask = new StateTask<WorldTimes>("WorldTimeTask") {
-			private final int DURATION = 20;
+			private final int DURATION = 3;
 			
 			public void switchTime() {
 				int idx = world.wTime.getOrder() + 1;
@@ -58,5 +60,9 @@ public class WorldTimeStateController extends WorldStateController<WorldTimes> {
 		tp.scheduleTaskAtRate(0, 1, stateTask);
 		stateTask.pause();
 	}
+
+
+
+	
 	
 }

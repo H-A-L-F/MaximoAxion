@@ -1,5 +1,7 @@
 package models.world;
 
+import java.util.Vector;
+
 import main.GameMaster;
 
 public class World {
@@ -7,8 +9,9 @@ public class World {
 	
 	public WorldTimes wTime;
 	public WorldStatus wStatus;
-	public WorldEvents wEvents;
+	public Vector<WorldEvents> wEvents;
 	private WorldTimeStateController wTimeController;
+	private WorldEventStateController wEventController;
 	
 	private GameMaster gm;
 	
@@ -24,10 +27,14 @@ public class World {
 		
 		this.wTime = WorldTimes.MORNING;
 		this.wTimeController = new WorldTimeStateController(this, wTime);
+		
+		this.wEvents = new Vector<>();
+		this.wEventController = new WorldEventStateController(this, WorldEvents.WORLD_NORMAL);
 	}
 	
 	public void startWorld() {
 		this.wTimeController.start();
+		this.wEventController.start();
 	}
 	
 	public void notifyStatusChange() {
@@ -54,11 +61,19 @@ public class World {
 	}
 	
 	private void printEvents() {
-		
+		for (WorldEvents e : wEvents) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public void switchTime(WorldTimes time) {
 		this.wTime = time;
+		
+		if(time == WorldTimes.DAWN) {
+			wEventController.procDay();
+		} else if(time == WorldTimes.DUSK) {
+			wEventController.procNight();
+		}
 		
 		notifyStatusChange();
 	}
