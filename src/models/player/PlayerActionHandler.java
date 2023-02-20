@@ -10,6 +10,7 @@ public class PlayerActionHandler {
 	}
 
 	public void actionHandler(PlayerActions a) {
+		System.out.println(a.getMessage());
 		switch (a) {
 		case EXPLORE:
 			// do something

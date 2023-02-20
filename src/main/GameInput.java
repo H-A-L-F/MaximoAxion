@@ -4,13 +4,29 @@ import modules.ConsoleInput;
 import modules.ControlledThread;
 
 public class GameInput extends ControlledThread {
-	
+
 	private GameMaster gm;
 	private ConsoleInput in;
 
 	public GameInput(GameMaster gm) {
 		super("Game input");
 		this.gm = gm;
+	}
+
+	@Override
+	public void run() {
+		while (running) {
+			synchronized (this) {
+				while (paused) {
+					try {
+						wait();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				update();
+			}
+		}
 	}
 
 	@Override

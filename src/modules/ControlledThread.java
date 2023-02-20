@@ -3,8 +3,8 @@ package modules;
 public abstract class ControlledThread implements Runnable {
 	private Thread t;
 	private String threadName;
-	private volatile boolean running = true;
-	private volatile boolean paused = false;
+	protected volatile boolean running = true;
+	protected volatile boolean paused = false;
 
 	public ControlledThread(String threadName) {
 		super();
