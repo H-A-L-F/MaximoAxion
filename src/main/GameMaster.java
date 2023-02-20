@@ -37,10 +37,15 @@ public class GameMaster {
 	}
 	
 	public void dayPass() {
+		Lib.clear();
 		world.printDay();
+		System.out.println();
 		world.printWorld();
+		System.out.println();
 		player.printStats();
+		System.out.println();
 		player.printResources();
+		System.out.println();
 		player.printActions();
 	}
 	

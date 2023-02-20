@@ -40,11 +40,14 @@ public class WorldTimeStateController extends WorldStateController<WorldTimes> {
 				
 				if(idx >= times.size()) {
 					idx = 0;
+					WorldTimes temp = times.get(idx);
+					world.switchTime(temp);
 					world.dayPass();
+				} else {
+					WorldTimes temp = times.get(idx);
+					world.switchTime(temp);
+					world.notifyStatusChange();
 				}
-				
-				WorldTimes temp = times.get(idx);
-				world.switchTime(temp);
 			}
 
 			@Override

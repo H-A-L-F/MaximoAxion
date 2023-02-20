@@ -74,8 +74,6 @@ public class World {
 		} else if(time == WorldTimes.DUSK) {
 			wEventController.procNight();
 		}
-		
-		notifyStatusChange();
 	}
 	
 	public void dayPass() {
