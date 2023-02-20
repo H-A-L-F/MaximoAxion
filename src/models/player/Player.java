@@ -28,6 +28,7 @@ public class Player {
 	
 	private GameMaster gm ;
 	private PlayerActionController actController;
+	private PlayerActionHandler actHandler;
 	
 	public Player(GameMaster gm) {
 		this.health = 100;
@@ -44,10 +45,12 @@ public class Player {
 		
 		this.gm = gm;
 		this.actController = new PlayerActionController(this, gm.world);
+		this.actHandler = new PlayerActionHandler(this);
 	}
 	
-	public void handleInput(String str) {
-		
+	public void handleInput(int in) {
+		int res = in - 1;
+		actHandler.actionHandler(availActions.get(res));
 	}
 	
 	public void notifyStatusChange() {

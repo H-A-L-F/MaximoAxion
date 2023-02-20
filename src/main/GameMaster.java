@@ -38,7 +38,7 @@ public class GameMaster {
 	public void input(String str) {
 		int res = Integer.parseInt(str);
 		if(res == 0) pauseGame();
-		else player.handleInput(str);
+		else player.handleInput(res);
 	}
 	
 	private void pauseGame() {
