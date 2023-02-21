@@ -21,8 +21,8 @@ public class Lib {
 	}
 	
 	public static int getPercent(int amt, int tot) {
-		double res = amt / tot;
-		return (int) res * 100;
+		double res = amt * 100 / tot;
+		return (int) res;
 	}
 	
 	public static void clear() {
