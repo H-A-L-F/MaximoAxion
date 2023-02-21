@@ -27,8 +27,17 @@ public class GameMaster {
 	}
 	
 	private void updateScreen() {
+//		Lib.clear();
+//		world.printWorld();
+//		System.out.println();
+//		player.printActions();
+		
 		Lib.clear();
 		world.printWorld();
+		System.out.println();
+		player.printStats();
+		System.out.println();
+		player.printResources();
 		System.out.println();
 		player.printActions();
 	}
