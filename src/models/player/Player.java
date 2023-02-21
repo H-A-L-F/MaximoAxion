@@ -62,10 +62,10 @@ public class Player {
 	
 	public void printStats() {
 		// Health: [||||||||||||||||||||] (100%)		
-		System.out.printf("Health: [%20s] (%d%%)\n", Lib.intToBar(health, maxHealth), Lib.getPercent(health, maxHealth));
-		System.out.printf("Hunger: [%20s] (%d%%)\n", Lib.intToBar(hunger, maxHunger), Lib.getPercent(hunger, maxHunger));
-		System.out.printf("Thirst: [%20s] (%d%%)\n", Lib.intToBar(thirst, maxThirst), Lib.getPercent(thirst, maxThirst));
-		System.out.printf("Shelter: [%20s] (%d%%)\n", Lib.intToBar(shelter, maxShelter), Lib.getPercent(shelter, maxShelter));
+		System.out.printf("Health: [%-20s] (%d%%)\n", Lib.intToBar(health, maxHealth), Lib.getPercent(health, maxHealth));
+		System.out.printf("Hunger: [%-20s] (%d%%)\n", Lib.intToBar(hunger, maxHunger), Lib.getPercent(hunger, maxHunger));
+		System.out.printf("Thirst: [%-20s] (%d%%)\n", Lib.intToBar(thirst, maxThirst), Lib.getPercent(thirst, maxThirst));
+		System.out.printf("Shelter: [%-20s] (%d%%)\n", Lib.intToBar(shelter, maxShelter), Lib.getPercent(shelter, maxShelter));
 	}
 	
 	public void printResources() {
