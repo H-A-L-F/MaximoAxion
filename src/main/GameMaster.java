@@ -33,6 +33,19 @@ public class GameMaster {
 		player.printActions();
 	}
 	
+	private void handleInput(int res) {
+		Lib.clear();
+		world.printWorld();
+		System.out.println();
+		player.handleInput(res);
+		System.out.println();
+		player.printStats();
+		System.out.println();
+		player.printResources();
+		System.out.println();
+		player.printActions();
+	}
+	
 	private void startScreen() {
 		dayPass();
 	}
@@ -40,7 +53,7 @@ public class GameMaster {
 	public void input(String str) {
 		int res = Integer.parseInt(str);
 		if(res == 0) pauseGame();
-		else player.handleInput(res);
+		else handleInput(res);
 	}
 	
 	private void pauseGame() {
