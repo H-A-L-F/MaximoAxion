@@ -63,7 +63,10 @@ public class GameMaster {
 	
 	public void input(String str) {
 		int res = Integer.parseInt(str);
-		if(res == 0) pauseGame();
+		if(res == 0) {
+			if(state == GameState.PLAYING) pauseGame();
+			else if(state == GameState.PAUSE) resumeGame();
+		}
 		else handleInput(res);
 	}
 	
