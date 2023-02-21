@@ -70,6 +70,8 @@ public class PlayerActionHandler {
 		// code to rest
 	}
 
+	// UNTUK GATHER SEMUANYA GENERATE RANDOM KEMUDIAN INCREMENT.
+	// MIN DAN MAX VALUE DIPENGARUHI WORLD STATUS.
 	private void gatherWood() {
 		int min = 1;
 		int max = 5;
@@ -93,7 +95,7 @@ public class PlayerActionHandler {
 		int rand = Lib.RNG(min, max);
 		player.food += rand;
 	}
-
+	
 	private void consumeFood() {
 		// code to consume food
 	}

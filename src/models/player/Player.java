@@ -12,9 +12,11 @@ public class Player {
 	private int maxHealth = 100;
 	private int maxHunger = 100;
 	private int maxThirst = 100;
+	private int maxShelter = 100;
 	public int health;
 	public int hunger;
 	public int thirst;
+	public int shelter;
 	
 	// RESOURCES
 	public int wood;
@@ -34,6 +36,7 @@ public class Player {
 		this.health = 100;
 		this.hunger = 100;
 		this.thirst = 100;
+		this.shelter = 0;
 		
 		this.wood = 0;
 		this.food = 0;
@@ -62,6 +65,7 @@ public class Player {
 		System.out.printf("Health: [%20s] (%d)\n", Lib.intToBar(health, maxHealth), Lib.getPercent(health, maxHealth));
 		System.out.printf("Hunger: [%20s] (%d)\n", Lib.intToBar(hunger, maxHunger), Lib.getPercent(hunger, maxHunger));
 		System.out.printf("Thirst: [%20s] (%d)\n", Lib.intToBar(thirst, maxThirst), Lib.getPercent(thirst, maxThirst));
+		System.out.printf("Shelter: [%20s] (%d)\n", Lib.intToBar(shelter, maxShelter), Lib.getPercent(shelter, maxShelter));
 	}
 	
 	public void printResources() {
