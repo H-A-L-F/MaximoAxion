@@ -7,6 +7,8 @@ import modules.Database;
 import modules.Lib;
 
 public class GameMaster {
+	private GameState state;
+	
 	public World world;
 	public Player player;
 	private GameInput in;
@@ -68,7 +70,13 @@ public class GameMaster {
 	private void pauseGame() {
 		world.pause();
 		player.pause();
-		in.pause();
+		state = GameState.PAUSE;
+	}
+	
+	private void resumeGame() {
+		world.resume();
+		player.resume();
+		state = GameState.PLAYING;
 	}
 	
 	public void notifyStatusChange() {
@@ -98,10 +106,16 @@ public class GameMaster {
 		startScreen();
 		world.startWorld();
 		in.start();
+		state = GameState.PLAYING;
 	}
 	
 	public void exit() {
 		db.saveDatabase();
 		main.unpause();
 	}
+}
+
+enum GameState {
+	PLAYING,
+	PAUSE
 }

@@ -64,6 +64,10 @@ public class World {
 		
 	}
 	
+	public void resume() {
+		
+	}
+	
 	private void printEvents() {
 		for (WorldEvents e : wEvents) {
 			System.out.println(e.getMessage());
