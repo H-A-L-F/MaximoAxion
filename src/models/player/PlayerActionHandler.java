@@ -91,7 +91,7 @@ public class PlayerActionHandler {
 		int max = 5;
 		
 		int rand = Lib.RNG(min, max);
-		player.wood += rand;
+		player.food += rand;
 	}
 
 	private void consumeFood() {
@@ -103,7 +103,7 @@ public class PlayerActionHandler {
 		int max = 5;
 		
 		int rand = Lib.RNG(min, max);
-		player.wood += rand;
+		player.water += rand;
 	}
 
 	private void consumeWater() {
@@ -115,7 +115,7 @@ public class PlayerActionHandler {
 		int max = 5;
 		
 		int rand = Lib.RNG(min, max);
-		player.wood += rand;
+		player.herb += rand;
 	}
 
 	private void consumeHerbs() {
