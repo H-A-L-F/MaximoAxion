@@ -27,7 +27,7 @@ public class WorldTimeStateController extends WorldStateController<WorldTimes> {
 	}
 	
 	private void stopTime() {
-		stateTask.stop();
+		stateTask.pause();
 	}
 	
 	@Override

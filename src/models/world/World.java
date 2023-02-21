@@ -61,11 +61,13 @@ public class World {
 	}
 	
 	public void pause() {
-		
+		wTimeController.stop();
+		wEventController.stop();
 	}
 	
 	public void resume() {
-		
+		wTimeController.start();
+		wEventController.start();
 	}
 	
 	private void printEvents() {

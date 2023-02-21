@@ -18,12 +18,12 @@ public class WorldEventStateController extends WorldStateController<WorldEvents>
 	
 	@Override
 	public void start() {
-		
+		stateTask.resume();
 	}
 
 	@Override
 	public void stop() {
-		
+		stateTask.pause();
 	}
 	
 	public void procDay() {
