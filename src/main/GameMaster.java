@@ -12,9 +12,11 @@ public class GameMaster {
 	private GameInput in;
 	
 	public User user;
+	private Main main;
 	private Database db = Database.getInstance();
 	
-	public GameMaster(User user) {
+	public GameMaster(Main main, User user) {
+		this.main = main;
 		this.user = user;
 	}
 	
@@ -76,5 +78,6 @@ public class GameMaster {
 	
 	public void exit() {
 		db.saveDatabase();
+		main.unpause();
 	}
 }

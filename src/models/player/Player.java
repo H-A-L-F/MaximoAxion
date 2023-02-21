@@ -82,5 +82,9 @@ public class Player {
 			.forEach(i -> {
 				System.out.printf("%d. %s\n", i + 1, availActions.get(i).getMenu());
 			});
+		
+		System.out.println();
+		String message = String.format("What do you want to do? [1..%d]", availActions.size());
+		System.out.println(message);
 	}
 }
