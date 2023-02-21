@@ -61,6 +61,10 @@ public class Player {
 		actController.update();
 	}
 	
+	public void pause() {
+		
+	}
+	
 	public void printStats() {
 		// Health: [||||||||||||||||||||] (100%)		
 		System.out.printf(ConsoleColors.RED + "Health :" + ConsoleColors.RESET + " [" + ConsoleColors.GREEN + "%-20s" + ConsoleColors.RESET + "] (" + ConsoleColors.PURPLE + "%d%%" + ConsoleColors.RESET + ")\n", Lib.intToBar(health, maxHealth), Lib.getPercent(health, maxHealth));

@@ -60,6 +60,10 @@ public class World {
 		
 	}
 	
+	public void pause() {
+		
+	}
+	
 	private void printEvents() {
 		for (WorldEvents e : wEvents) {
 			System.out.println(e.getMessage());

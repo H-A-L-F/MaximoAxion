@@ -66,7 +66,9 @@ public class GameMaster {
 	}
 	
 	private void pauseGame() {
-		
+		world.pause();
+		player.pause();
+		in.pause();
 	}
 	
 	public void notifyStatusChange() {
