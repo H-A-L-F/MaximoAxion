@@ -73,6 +73,7 @@ public class Player {
 	}
 	
 	public void printActions() {
+		System.out.println("Actions:");
 		IntStream.range(0, availActions.size())
 			.forEach(i -> {
 				System.out.printf("%d. %s\n", i + 1, availActions.get(i).getMenu());

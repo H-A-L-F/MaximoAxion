@@ -1,5 +1,7 @@
 package models.player;
 
+import modules.Lib;
+
 public class PlayerActionHandler {
 
 	private Player player;
@@ -13,51 +15,122 @@ public class PlayerActionHandler {
 		System.out.println(a.getMessage());
 		switch (a) {
 		case EXPLORE:
-			// do something
+			explore();
 			break;
 		case REST:
-			// do something
+			rest();
 			break;
 		case WOOD_GATHER:
-			// do something
+			gatherWood();
 			break;
 		case BUILD_SHELTER:
-			// do something
+			buildShelter();
 			break;
 		case IMPROVE_SHELTER:
-			// do something
+			improveShelter();
 			break;
 		case FOOD_GATHER:
-			// do something
+			gatherFood();
 			break;
 		case FOOD_CONSUME:
-			// do something
+			consumeFood();
 			break;
 		case WATER_GATHER:
-			// do something
+			gatherWater();
 			break;
 		case WATER_CONSUME:
-			// do something
+			consumeWater();
 			break;
 		case HERBS_GATHER:
-			// do something
+			gatherHerbs();
 			break;
 		case HERBS_CONSUME:
-			// do something
+			consumeHerbs();
 			break;
 		case ATTACK:
-			// do something
+			attack();
 			break;
 		case DEFEND:
-			// do something
+			defend();
 			break;
 		case FLEE:
-			// do something
+			flee();
 			break;
 		default:
-			// default action
+			System.out.println("Invalid action");
 			break;
 		}
 	}
 
+	private void explore() {
+		// code to explore
+	}
+
+	private void rest() {
+		// code to rest
+	}
+
+	private void gatherWood() {
+		int min = 1;
+		int max = 5;
+		
+		int rand = Lib.RNG(min, max);
+		player.wood += rand;
+	}
+
+	private void buildShelter() {
+		// code to build shelter
+	}
+
+	private void improveShelter() {
+		// code to improve shelter
+	}
+
+	private void gatherFood() {
+		int min = 1;
+		int max = 5;
+		
+		int rand = Lib.RNG(min, max);
+		player.wood += rand;
+	}
+
+	private void consumeFood() {
+		// code to consume food
+	}
+
+	private void gatherWater() {
+		int min = 1;
+		int max = 5;
+		
+		int rand = Lib.RNG(min, max);
+		player.wood += rand;
+	}
+
+	private void consumeWater() {
+		// code to consume water
+	}
+
+	private void gatherHerbs() {
+		int min = 1;
+		int max = 5;
+		
+		int rand = Lib.RNG(min, max);
+		player.wood += rand;
+	}
+
+	private void consumeHerbs() {
+		// code to consume herbs
+	}
+
+	private void attack() {
+		// code to attack
+	}
+
+	private void defend() {
+		// code to defend
+	}
+
+	private void flee() {
+		// code to flee
+	}
 }

@@ -3,6 +3,8 @@ package modules;
 import java.util.Random;
 
 public class Lib {
+	private static Random rand = new Random();
+	
 	public static String intToBar(int amt, int tot) {
 		StringBuilder res = new StringBuilder();
 		
@@ -28,9 +30,12 @@ public class Lib {
 	}
 	
 	public static boolean RNG(int chance) {
-		Random rand = new Random();
 		int res = rand.nextInt(100);
 		if(res <= chance) return true;
 		else return false;
+	}
+	
+	public static int RNG(int min, int max) {
+		return rand.nextInt((max - min) + 1) + min;
 	}
 }
