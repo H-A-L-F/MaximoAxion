@@ -119,10 +119,12 @@ public class Main {
 	}
 	
 	public synchronized void pause() {
+		in.close();
 	    paused = true;
 	}
 
 	public synchronized void unpause() {
+		in = new ConsoleInput();
 	    paused = false;
 	    notifyAll();
 	}
