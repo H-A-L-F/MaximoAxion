@@ -63,9 +63,7 @@ public class GameMaster {
 	
 	public void input(String str) {
 		int res = Integer.parseInt(str);
-		System.out.println("INI INPUTNYA -> " + res);
 		if(res == 0) {
-			System.out.println("MASUK PAUSE HANDLING");
 			if(state == GameState.PLAYING) pauseGame();
 			else if(state == GameState.PAUSE) resumeGame();
 		}
