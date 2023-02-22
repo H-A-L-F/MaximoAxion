@@ -10,6 +10,7 @@ public class World {
 	public WorldTimes wTime;
 	public WorldStatus wStatus;
 	public Vector<WorldEvents> wEvents;
+	public Vector<WorldEvents> wInterupts;
 	private WorldTimeStateController wTimeController;
 	private WorldEventStateController wEventController;
 	
@@ -27,6 +28,8 @@ public class World {
 		
 		this.wTime = WorldTimes.MORNING;
 		this.wTimeController = new WorldTimeStateController(this, wTime);
+	
+		this.wInterupts = WorldEvents.getEventsInterrupt();
 		
 		this.wEvents = new Vector<>();
 		this.wEventController = new WorldEventStateController(this, WorldEvents.WORLD_NORMAL);
