@@ -21,7 +21,7 @@ public class PlayerActionHandler {
 			rest();
 			break;
 		case WOOD_GATHER:
-			gatherWood();
+			gather(a);
 			break;
 		case BUILD_SHELTER:
 			buildShelter();
@@ -30,19 +30,19 @@ public class PlayerActionHandler {
 			improveShelter();
 			break;
 		case FOOD_GATHER:
-			gatherFood();
+			gather(a);
 			break;
 		case FOOD_CONSUME:
 			consumeFood();
 			break;
 		case WATER_GATHER:
-			gatherWater();
+			gather(a);
 			break;
 		case WATER_CONSUME:
 			consumeWater();
 			break;
 		case HERBS_GATHER:
-			gatherHerbs();
+			gather(a);
 			break;
 		case HERBS_CONSUME:
 			consumeHerbs();
@@ -72,7 +72,6 @@ public class PlayerActionHandler {
 
 	// UNTUK GATHER SEMUANYA GENERATE RANDOM KEMUDIAN INCREMENT.
 	// MIN DAN MAX VALUE DIPENGARUHI WORLD STATUS.
-	
 	private void gather(PlayerActions a) {
 		int min = 1;
 		int max = 5;
@@ -100,13 +99,6 @@ public class PlayerActionHandler {
 		default:
 			break;
 		}
-	}
-	private void gatherWood() {
-		int min = 1;
-		int max = 5;
-		
-		int rand = Lib.RNG(min, max);
-		player.wood += rand;
 	}
 
 	// UNTUK CONSUME SEMUANYA CEK BILA PERLU LEBIH DARI 10 ATAU TIDAK.
@@ -145,14 +137,6 @@ public class PlayerActionHandler {
 		// code to improve shelter
 	}
 
-	private void gatherFood() {
-		int min = 1;
-		int max = 5;
-		
-		int rand = Lib.RNG(min, max);
-		player.food += rand;
-	}
-	
 	private void consumeFood() {
 		int required = player.maxHunger - player.hunger;
 		
@@ -176,14 +160,6 @@ public class PlayerActionHandler {
 		}
 	}
 
-	private void gatherWater() {
-		int min = 1;
-		int max = 5;
-		
-		int rand = Lib.RNG(min, max);
-		player.water += rand;
-	}
-
 	private void consumeWater() {
 		int required = player.maxThirst - player.thirst;
 		
@@ -205,14 +181,6 @@ public class PlayerActionHandler {
 				player.water = 0;
 			}
 		}
-	}
-
-	private void gatherHerbs() {
-		int min = 1;
-		int max = 5;
-		
-		int rand = Lib.RNG(min, max);
-		player.herb += rand;
 	}
 
 	private void consumeHerbs() {
