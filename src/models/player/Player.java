@@ -62,11 +62,11 @@ public class Player {
 	}
 	
 	public void pause() {
-		// TODO
+		
 	}
 	
 	public void resume() {
-		// TODO
+		
 	}
 	
 	public void printStats() {
