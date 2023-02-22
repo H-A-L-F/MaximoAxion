@@ -70,6 +70,14 @@ public class GameMaster {
 		else handleInput(res);
 	}
 	
+	public void input(int str) {
+		if(str == 0) {
+			if(state == GameState.PLAYING) pauseGame();
+			else if(state == GameState.PAUSE) resumeGame();
+		}
+		else handleInput(str);
+	}
+	
 	private void pauseGame() {
 		world.pause();
 		player.pause();

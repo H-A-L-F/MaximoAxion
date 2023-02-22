@@ -32,10 +32,10 @@ public class GameInput extends ControlledThread {
 
 	@Override
 	public void update() {
-		String message = String.format("What do you want to do? [1..%d]", gm.player.availActions.size());
+//		String message = String.format("What do you want to do? [1..%d]", gm.player.availActions.size());
 //		String res = in.getStrWMSG(message, 1, gm.player.availActions.size());
 		// TODO HARDCODE FIX
-		String res = in.getStrWMSG("", 1, gm.player.availActions.size());
+		int res = in.getIntWMSG("", 0, gm.player.availActions.size());
 		gm.input(res);
 	}
 

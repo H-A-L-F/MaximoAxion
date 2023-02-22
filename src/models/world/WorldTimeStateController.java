@@ -37,6 +37,7 @@ public class WorldTimeStateController extends WorldStateController<WorldTimes> {
 			
 			public void switchTime() {
 				int idx = world.wTime.getOrder() + 1;
+				System.out.println(idx);
 				
 				if(idx >= times.size()) {
 					idx = 0;
