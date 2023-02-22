@@ -13,26 +13,10 @@ public abstract class ControlledThread implements Runnable {
 	}
 
 	public void run() {
-//		while (running) {
-//			synchronized (this) {
-//				while (paused) {
-//					try {
-//						wait();
-//					} catch (InterruptedException e) {
-//						e.printStackTrace();
-//					}
-//				}
-//				update();
-//			}
-//		}
 		if (running) {
 			synchronized (this) {
 				if (paused) {
-					try {
-						wait();
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+					return;
 				}
 				update();
 			}
