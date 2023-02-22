@@ -26,12 +26,16 @@ public class PlayerActionController {
 		this.availActions = player.availActions;
 		this.actions = player.actions;
 		
-		availActions.addAll(actions.get(ActionTypes.FREE));
+		// UNTUK SEKARANG GAADA FREE
+//		availActions.addAll(actions.get(ActionTypes.FREE));
+		
 		availActions.addAll(actions.get(ActionTypes.WOOD));
 		availActions.addAll(actions.get(ActionTypes.FOOD));
 		availActions.addAll(actions.get(ActionTypes.WATER));
 		availActions.addAll(actions.get(ActionTypes.HERBS));
-		availActions.addAll(actions.get(ActionTypes.ENCOUNTER));
+		
+		// UNTUK SEKARANG GAADA ENCOUNTER
+//		availActions.addAll(actions.get(ActionTypes.ENCOUNTER));
 	}
 	
 	public void update() {

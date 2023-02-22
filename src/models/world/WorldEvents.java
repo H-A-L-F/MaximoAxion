@@ -10,6 +10,11 @@ public enum WorldEvents {
 	MASSIVE_THUNDERSTORM("The sky is dark and lightning is striking everywhere - a massive thunderstorm is raging!"),
 	MASSIVE_BIRD_MIGRATION("The sky is filled with birds of all kinds, moving in a massive migration."),
 	MASSIVE_EARTHQUAKE("The ground is shaking violently and buildings are collapsing - a massive earthquake is underway!"),
+	
+	// INTERRUPTION
+	FALL("It's too dark, you trip sice you can't see clearly - you hurt your legs!"),
+	WOLF_ATTACK("This is a wolf territory and they don't like intruders - a wolf pack attacks!"),
+	SHADOW_ATTACK("A figure attacks you from the dark - a shadow attacks!"),
 
 	SOLAR_ECLIPSE("The sun is obscured by the moon, casting an eerie shadow on the world - it's a solar eclipse!"),
 	SCORCHING_SUN("The sun is burning hot and the air is stifling - it's a scorching day!"),
@@ -43,5 +48,9 @@ public enum WorldEvents {
 	
 	public static Vector<WorldEvents> getEventsNight() {
 		return new Vector<>(Arrays.asList(BLOOD_MOON, MASSIVE_BATS_INVASION, ALIEN_INVASION, BLACKOUT));
+	}
+	
+	public static Vector<WorldEvents> getEventsInterrupt() {
+		return new Vector<>(Arrays.asList(FALL, WOLF_ATTACK, SHADOW_ATTACK));
 	}
 }
