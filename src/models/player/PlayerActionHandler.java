@@ -72,6 +72,35 @@ public class PlayerActionHandler {
 
 	// UNTUK GATHER SEMUANYA GENERATE RANDOM KEMUDIAN INCREMENT.
 	// MIN DAN MAX VALUE DIPENGARUHI WORLD STATUS.
+	
+	private void gather(PlayerActions a) {
+		int min = 1;
+		int max = 5;
+		
+		int rand = Lib.RNG(min, max);
+		
+		StringBuilder msg = new StringBuilder("You obtained " + rand);
+		switch (a) {
+		case WOOD_GATHER:
+			msg.append("wood.");
+			player.wood += rand;
+			break;
+		case FOOD_GATHER:
+			msg.append("food.");
+			player.food += rand;
+			break;
+		case WATER_GATHER:
+			msg.append("water.");
+			player.water += rand;
+			break;
+		case HERBS_GATHER:
+			msg.append("herb.");
+			player.herb += rand;
+			break;
+		default:
+			break;
+		}
+	}
 	private void gatherWood() {
 		int min = 1;
 		int max = 5;
