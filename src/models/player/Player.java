@@ -6,6 +6,7 @@ import java.util.stream.IntStream;
 
 import constants.ConsoleColors;
 import main.GameMaster;
+import models.world.World;
 import modules.Lib;
 
 public class Player {
@@ -31,11 +32,12 @@ public class Player {
 	public Vector<PlayerActions> availActions;
 	public Map<ActionTypes, Vector<PlayerActions>> actions;
 	
-	private GameMaster gm ;
+	private GameMaster gm;
+	private World world;
 	private PlayerActionController actController;
 	private PlayerActionHandler actHandler;
 	
-	public Player(GameMaster gm) {
+	public Player(GameMaster gm, World world) {
 		this.health = 100;
 		this.hunger = 100;
 		this.thirst = 100;
@@ -52,6 +54,7 @@ public class Player {
 		this.actions = PlayerActions.getActions();
 		
 		this.gm = gm;
+		this.world = world;
 		this.actController = new PlayerActionController(this, gm.world);
 		this.actHandler = new PlayerActionHandler(this);
 	}

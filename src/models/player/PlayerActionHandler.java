@@ -1,14 +1,17 @@
 package models.player;
 
+import models.world.World;
 import modules.Lib;
 
 public class PlayerActionHandler {
 
 	private Player player;
+	private World world;
 
-	public PlayerActionHandler(Player player) {
+	public PlayerActionHandler(Player player, World world) {
 		super();
 		this.player = player;
+		this.world = world;
 	}
 
 	public void actionHandler(PlayerActions a) {
@@ -60,6 +63,10 @@ public class PlayerActionHandler {
 			System.out.println("Invalid action");
 			break;
 		}
+	}
+	
+	private void interruption() {
+		
 	}
 
 	private void explore() {

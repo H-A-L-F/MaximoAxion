@@ -24,7 +24,7 @@ public class GameMaster {
 	
 	public void initGame() {
 		this.world = new World(this);
-		this.player = new Player(this);
+		this.player = new Player(this, world);
 		this.in = new GameInput(this);
 	}
 	
