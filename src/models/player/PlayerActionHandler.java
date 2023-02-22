@@ -12,7 +12,7 @@ public class PlayerActionHandler {
 	}
 
 	public void actionHandler(PlayerActions a) {
-		System.out.println(a.getMessage());
+		player.messages.add(a.getMessage());
 		switch (a) {
 		case EXPLORE:
 			explore();

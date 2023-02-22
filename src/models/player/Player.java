@@ -25,6 +25,8 @@ public class Player {
 	public int water;
 	public int herb;
 	
+	public Vector<String> messages;
+	
 	// ACTIONS
 	public Vector<PlayerActions> availActions;
 	public Map<ActionTypes, Vector<PlayerActions>> actions;
@@ -43,6 +45,8 @@ public class Player {
 		this.food = 0;
 		this.water = 0;
 		this.herb = 0;
+		
+		this.messages = new Vector<>();
 		
 		this.availActions = new Vector<>();
 		this.actions = PlayerActions.getActions();
@@ -67,6 +71,12 @@ public class Player {
 	
 	public void resume() {
 		// TODO
+	}
+	
+	public void printMessages() {
+		messages.forEach(m -> System.out.println(m));
+		
+		messages.clear();
 	}
 	
 	public void printStats() {
