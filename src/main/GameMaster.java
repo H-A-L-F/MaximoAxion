@@ -64,6 +64,10 @@ public class GameMaster {
 		else handleInput(res);
 	}
 	
+	public synchronized void harmPlayer(int dmg) {
+		player.handleDamage(dmg);
+	}
+	
 	private void pauseGame() {
 		world.pause();
 		player.pause();

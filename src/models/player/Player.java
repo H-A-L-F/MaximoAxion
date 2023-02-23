@@ -69,6 +69,10 @@ public class Player {
 		actHandler.actionHandler(availActions.get(res));
 	}
 	
+	public void handleDamage(int dmg) {
+		
+	}
+	
 	public void notifyStatusChange() {
 		actController.update();
 	}
