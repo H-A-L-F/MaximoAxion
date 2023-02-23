@@ -1,6 +1,10 @@
 package models.player;
 
+import java.util.Arrays;
+import java.util.Vector;
+
 import models.world.World;
+import models.world.WorldEvents;
 import modules.Lib;
 
 public class PlayerActionHandler {
@@ -66,7 +70,48 @@ public class PlayerActionHandler {
 	}
 	
 	private void interruption() {
+		int easy = 0;
+		int med = 0;
+		int hard = 0;
 		
+		ActionEvents event = ActionEvents.FALL;
+		
+		switch (world.wTime) {
+		case DUSK:
+			easy = 50;
+			med = 30;
+			hard = 20;
+			break;
+		case NIGHT:
+			easy = 30;
+			med = 50;
+			hard = 20;
+			break;
+		case MIDNIGHT:
+			easy = 20;
+			med = 30;
+			hard = 50;
+			break;
+		default:
+			break;
+		}
+		
+		int rand = Lib.RNG(1, 100);
+		
+		if(rand <= easy) {
+			event = ActionEvents.FALL;
+		} else if(rand <= easy + med) {
+			event = ActionEvents.WOLF_ATTACK;
+		} else if(rand <= easy + med + hard) {
+			event = ActionEvents.SHADOW_ATTACK;
+		}
+		
+		int additionalDmg = Lib.RNG(1, 3);
+		int dmg = additionalDmg + event.getDamage();
+		String msg = String.format("%syou took %d damage.", event.getMessage(), dmg);
+		player.messages.add(msg);
+		
+		player.health -= dmg;
 	}
 
 	private void explore() {
@@ -106,6 +151,8 @@ public class PlayerActionHandler {
 		default:
 			break;
 		}
+		
+		interruption();
 	}
 
 	// UNTUK CONSUME SEMUANYA CEK BILA PERLU LEBIH DARI 10 ATAU TIDAK.
@@ -223,5 +270,31 @@ public class PlayerActionHandler {
 
 	private void flee() {
 		// code to flee
+	}
+}
+
+enum ActionEvents {
+	// INTERRUPTION
+	FALL("It's too dark, you trip sice you can't see clearly - ", 5),
+	WOLF_ATTACK("This is a wolf territory and they don't like intruders - ", 8),
+	SHADOW_ATTACK("A figure attacks you from the dark - ", 15);
+	
+	private String msg;
+	private int dmg;
+	
+	ActionEvents(String msg, int dmg) {
+		this.msg = msg;
+	}
+	
+	public String getMessage() {
+		return this.msg;
+	}
+	
+	public int getDamage() {
+		return this.dmg;
+	}
+	
+	public static Vector<ActionEvents> getEventsInterrupt() {
+		return new Vector<>(Arrays.asList(FALL, WOLF_ATTACK, SHADOW_ATTACK));
 	}
 }

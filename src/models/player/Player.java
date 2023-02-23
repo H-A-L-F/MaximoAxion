@@ -56,7 +56,7 @@ public class Player {
 		this.gm = gm;
 		this.world = world;
 		this.actController = new PlayerActionController(this, gm.world);
-		this.actHandler = new PlayerActionHandler(this);
+		this.actHandler = new PlayerActionHandler(this, world);
 	}
 	
 	public void handleInput(int in) {
