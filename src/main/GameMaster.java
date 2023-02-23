@@ -81,7 +81,8 @@ public class GameMaster {
 	}
 	
 	private void stopGame() {
-		
+		world.stop();
+		player.stop();
 	}
 	
 	public void notifyStatusChange() {

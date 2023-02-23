@@ -87,6 +87,10 @@ public class Player {
 		// TODO
 	}
 	
+	public void stop() {
+		// TODO
+	}
+	
 	public void printMessages() {
 		messages.forEach(m -> System.out.println(m));
 		

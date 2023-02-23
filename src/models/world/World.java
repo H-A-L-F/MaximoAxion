@@ -77,6 +77,11 @@ public class World {
 		wEventController.start();
 	}
 	
+	public void stop() {
+		wTimeController.stop();
+		wEventController.stop();
+	}
+	
 	private void printEvents() {
 		for (WorldEvents e : wEvents) {
 			System.out.println(e.getMessage());
