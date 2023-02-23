@@ -6,6 +6,7 @@ import main.GameMaster;
 
 public class World {
 	public int day;
+	public Vector<String> eventMsgs;
 	
 	public WorldTimes wTime;
 	public WorldStatus wStatus;
@@ -24,6 +25,7 @@ public class World {
 	
 	public void initWorld() {
 		this.day = 0;
+		this.eventMsgs = new Vector<>();
 		
 		this.wTime = WorldTimes.MORNING;
 		this.wTimeController = new WorldTimeStateController(this, wTime);
@@ -41,10 +43,15 @@ public class World {
 		gm.notifyStatusChange();
 	}
 	
+	public void harmPlayer(int dmg) {
+		gm.harmPlayer(dmg);
+	}
+	
 	public void printWorld() {
 		printTime();
 		printStatus();
 		printEvents();
+		printMessages();
 	}
 	
 	public void printDay() {
@@ -74,6 +81,11 @@ public class World {
 		for (WorldEvents e : wEvents) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	private void printMessages() {
+		eventMsgs.forEach(str -> System.out.println(str));
+		eventMsgs.clear();
 	}
 	
 	public void switchTime(WorldTimes time) {

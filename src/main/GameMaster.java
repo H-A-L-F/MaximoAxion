@@ -28,7 +28,7 @@ public class GameMaster {
 		this.in = new GameInput(this);
 	}
 	
-	private void updateScreen() {
+	private synchronized void updateScreen() {
 //		Lib.clear();
 //		world.printWorld();
 //		System.out.println();

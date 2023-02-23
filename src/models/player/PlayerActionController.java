@@ -53,6 +53,9 @@ public class PlayerActionController {
 		case BLACKOUT:
 			player.availActions.removeIf(a -> a == PlayerActions.FOOD_GATHER || a == PlayerActions.WOOD_GATHER || a == PlayerActions.WATER_GATHER || a == PlayerActions.HERBS_GATHER);
 			break;
+		case SOLAR_ECLIPSE:
+			player.availActions.removeIf(a -> a == PlayerActions.FOOD_GATHER || a == PlayerActions.WOOD_GATHER || a == PlayerActions.WATER_GATHER || a == PlayerActions.HERBS_GATHER);
+			break;
 		default:
 			break;
 		}

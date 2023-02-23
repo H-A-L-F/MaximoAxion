@@ -22,4 +22,16 @@ public class ThreadPoolManager {
 	public ScheduledFuture<?> scheduleTaskAtRate(int start, int delay, ControlledThread task) {
 		return executor.scheduleAtFixedRate(task, start, delay, TimeUnit.SECONDS);
 	}
+	
+	public void taskAtRateAndDuration(int start, int delay, int limit, ControlledThread task) {
+		ScheduledFuture<?> scheduledFuture = executor.scheduleAtFixedRate(task, start, delay, TimeUnit.SECONDS);
+		executor.schedule(() -> {
+			task.stop();
+		    scheduledFuture.cancel(true);
+		}, limit, TimeUnit.SECONDS);
+	}
+	
+	public void schedule(int time, Runnable run) {
+		executor.schedule(run, time, TimeUnit.SECONDS);
+	}
 }

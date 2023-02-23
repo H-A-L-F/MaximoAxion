@@ -11,10 +11,10 @@ import modules.Lib;
 
 public class Player {
 	// STATS
-	public int maxHealth = 100;
+	public int maxHealth = 1000;
 	public int maxHunger = 100;
 	public int maxThirst = 100;
-	public int maxShelter = 100;
+	public int maxShelter = 1000;
 	public int health;
 	public int hunger;
 	public int thirst;
@@ -41,9 +41,9 @@ public class Player {
 	private PlayerActionHandler actHandler;
 	
 	public Player(GameMaster gm, World world) {
-		this.health = 100;
-		this.hunger = 100;
-		this.thirst = 100;
+		this.health = maxHealth;
+		this.hunger = maxHunger;
+		this.thirst = maxThirst;
 		this.shelter = 0;
 		
 		this.wood = 0;
@@ -70,7 +70,7 @@ public class Player {
 	}
 	
 	public void handleDamage(int dmg) {
-		
+		this.health -= dmg;
 	}
 	
 	public void notifyStatusChange() {
