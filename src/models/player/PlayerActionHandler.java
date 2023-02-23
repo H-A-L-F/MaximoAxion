@@ -164,28 +164,14 @@ public class PlayerActionHandler {
 	private void buildShelter() {
 		int required = player.maxShelter - player.shelter;
 		
-//		if(player.wood <= 0) {
-//			System.out.println("Not enough wood!");
-//			return;
-//		}
+		if(required >= 10) required = 10;
 		
-		if(required >= 10) {
-			required = 10;
-			if(player.wood >= required) {
-				player.wood -= 10;
-				player.shelter += 10;
-			} else {
-				player.shelter += player.wood;
-				player.wood = 0;
-			}
+		if(player.wood >= required) {
+			player.wood -= required;
+			player.shelter += required;
 		} else {
-			if(player.wood >= required) {
-				player.wood -= required;
-				player.shelter += required;
-			} else {
-				player.shelter += player.wood;
-				player.wood = 0;
-			}
+			player.shelter += player.wood;
+			player.wood = 0;
 		}
 	}
 
@@ -196,69 +182,43 @@ public class PlayerActionHandler {
 	private void consumeFood() {
 		int required = player.maxHunger - player.hunger;
 		
-		if(required >= 10) {
-			required = 10;
-			if(player.food >= required) {
-				player.food -= 10;
-				player.hunger += 10;
-			} else {
-				player.hunger += player.food;
-				player.food = 0;
-			}
+		if(required >= 10) required = 10;
+			
+		if(player.food >= required) {
+			player.food -= required;
+			player.hunger += required;
 		} else {
-			if(player.food >= required) {
-				player.food -= required;
-				player.hunger += required;
-			} else {
-				player.hunger += player.food;
-				player.food = 0;
-			}
+			player.hunger += player.food;
+			player.food = 0;
 		}
+		
 	}
 
 	private void consumeWater() {
 		int required = player.maxThirst - player.thirst;
 		
-		if(required >= 10) {
-			required = 10;
-			if(player.water >= required) {
-				player.water -= 10;
-				player.thirst += 10;
-			} else {
-				player.thirst += player.water;
-				player.water = 0;
-			}
+		if(required >= 10) required = 10;
+		
+		if(player.water >= required) {
+			player.water -= required;
+			player.thirst += required;
 		} else {
-			if(player.water >= required) {
-				player.water -= required;
-				player.thirst += required;
-			} else {
-				player.thirst += player.water;
-				player.water = 0;
-			}
+			player.thirst += player.water;
+			player.water = 0;
 		}
 	}
 
 	private void consumeHerbs() {
 		int required = player.maxHealth - player.health;
 		
-		if(required >= 10) {
-			required = 10;
-			if(player.herb >= required) {
-				player.herb -= 10;
-				player.health += 10;
-			} else {
-				player.health += player.herb;
-				player.herb = 0;
-			}
+		if(required >= 10) required = 10;
+		
+		if(player.herb >= required) {
+			player.herb -= required;
+			player.health += required;
 		} else {
-			if(player.herb >= required) {
-				player.herb -= required;
-				player.health += required;
-			} else {
-				player.health += player.herb;
-				player.herb = 0;
-			}
+			player.health += player.herb;
+			player.herb = 0;
 		}
 	}
 
