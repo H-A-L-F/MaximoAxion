@@ -133,24 +133,26 @@ public class PlayerActionHandler {
 		StringBuilder msg = new StringBuilder("You obtained " + rand);
 		switch (a) {
 		case WOOD_GATHER:
-			msg.append("wood.");
+			msg.append(" wood.");
 			player.wood += rand;
 			break;
 		case FOOD_GATHER:
-			msg.append("food.");
+			msg.append(" food.");
 			player.food += rand;
 			break;
 		case WATER_GATHER:
-			msg.append("water.");
+			msg.append(" water.");
 			player.water += rand;
 			break;
 		case HERBS_GATHER:
-			msg.append("herb.");
+			msg.append(" herb.");
 			player.herb += rand;
 			break;
 		default:
 			break;
 		}
+		
+		player.messages.add(msg.toString());
 		
 		interruption();
 	}
