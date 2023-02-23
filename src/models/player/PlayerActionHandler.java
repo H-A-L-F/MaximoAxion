@@ -9,11 +9,16 @@ import modules.Lib;
 
 public class PlayerActionHandler {
 
+	private int damageAddons;
+	
 	private Player player;
 	private World world;
 
 	public PlayerActionHandler(Player player, World world) {
 		super();
+		
+		this.damageAddons = player.damageAddons;
+		
 		this.player = player;
 		this.world = world;
 	}
@@ -119,7 +124,7 @@ public class PlayerActionHandler {
 		}
 		
 		int additionalDmg = Lib.RNG(1, 3);
-		int dmg = additionalDmg + event.getDamage();
+		int dmg = additionalDmg + event.getDamage() + damageAddons;
 		String msg = String.format("%syou took %d damage.", event.getMessage(), dmg);
 		player.messages.add(msg);
 		

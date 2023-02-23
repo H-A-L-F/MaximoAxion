@@ -32,6 +32,9 @@ public class Player {
 	public Vector<PlayerActions> availActions;
 	public Map<ActionTypes, Vector<PlayerActions>> actions;
 	
+	// ATTRIBUTES
+	public int damageAddons;
+	
 	private GameMaster gm;
 	private World world;
 	private PlayerActionController actController;
@@ -52,6 +55,8 @@ public class Player {
 		
 		this.availActions = new Vector<>();
 		this.actions = PlayerActions.getActions();
+		
+		this.damageAddons = 0;
 		
 		this.gm = gm;
 		this.world = world;
