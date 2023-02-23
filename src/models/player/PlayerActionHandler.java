@@ -20,6 +20,7 @@ public class PlayerActionHandler {
 
 	public void actionHandler(PlayerActions a) {
 		player.messages.add(a.getMessage());
+		
 		switch (a) {
 		case EXPLORE:
 			explore();
@@ -67,6 +68,17 @@ public class PlayerActionHandler {
 			System.out.println("Invalid action");
 			break;
 		}
+	}
+	
+	private void actionEnergy() {
+		int min = 1;
+		int max = 5;
+		
+		int thirst = Lib.RNG(min, max);
+		int hunger = max - thirst;
+		
+		player.hunger -= hunger;
+		player.thirst -= thirst;
 	}
 	
 	private void interruption() {
@@ -155,6 +167,7 @@ public class PlayerActionHandler {
 		player.messages.add(msg.toString());
 		
 		interruption();
+		actionEnergy();
 	}
 
 	// UNTUK CONSUME SEMUANYA CEK BILA PERLU LEBIH DARI 10 ATAU TIDAK.
