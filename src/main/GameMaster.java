@@ -80,6 +80,10 @@ public class GameMaster {
 		state = GameState.PLAYING;
 	}
 	
+	private void stopGame() {
+		
+	}
+	
 	public void notifyStatusChange() {
 		player.notifyStatusChange();
 		updateScreen();
@@ -111,6 +115,7 @@ public class GameMaster {
 	}
 	
 	public void exit() {
+		stopGame();
 		db.saveDatabase();
 		main.unpause();
 	}

@@ -71,6 +71,8 @@ public class Player {
 	
 	public void handleDamage(int dmg) {
 		this.health -= dmg;
+		
+		if (health <= 0) gm.exit();
 	}
 	
 	public void notifyStatusChange() {

@@ -82,8 +82,18 @@ public class PlayerActionHandler {
 		int thirst = Lib.RNG(min, max);
 		int hunger = max - thirst;
 		
-		player.hunger -= hunger;
-		player.thirst -= thirst;
+		if(hunger > player.hunger) {
+			hunger -= player.hunger;
+			player.hunger = 0;
+			player.handleDamage(hunger);;
+		}
+		else player.hunger -= hunger;
+		
+		if(thirst > player.thirst) {
+			thirst -= player.thirst;
+			player.handleDamage(hunger);
+		}
+		else player.thirst -= thirst;
 	}
 	
 	private void interruption() {
@@ -128,7 +138,7 @@ public class PlayerActionHandler {
 		String msg = String.format("%syou took %d damage.", event.getMessage(), dmg);
 		player.messages.add(msg);
 		
-		player.health -= dmg;
+		player.handleDamage(dmg);
 	}
 
 	private void explore() {
