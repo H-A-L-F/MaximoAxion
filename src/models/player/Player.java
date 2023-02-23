@@ -115,7 +115,7 @@ public class Player {
 			});
 		
 		System.out.println();
-		String message = String.format("What do you want to do? [1..%d]", availActions.size());
-		System.out.println(message);
+		String message = String.format("Enter 0 to pause\nWhat do you want to do? [1..%d]: ", availActions.size());
+		System.out.printf(message);
 	}
 }
