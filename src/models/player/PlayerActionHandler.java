@@ -142,8 +142,8 @@ public class PlayerActionHandler {
 	// UNTUK GATHER SEMUANYA GENERATE RANDOM KEMUDIAN INCREMENT.
 	// MIN DAN MAX VALUE DIPENGARUHI WORLD STATUS.
 	private void gather(PlayerActions a) {
-		int min = 1;
-		int max = 5;
+		int min = 5;
+		int max = 10;
 		
 		int rand = Lib.RNG(min, max);
 		
