@@ -93,7 +93,7 @@ public class PlayerActionHandler {
 			hard = 50;
 			break;
 		default:
-			break;
+			return;
 		}
 		
 		int rand = Lib.RNG(1, 100);
@@ -164,12 +164,19 @@ public class PlayerActionHandler {
 	private void buildShelter() {
 		int required = player.maxShelter - player.shelter;
 		
+		if(player.wood <= 0) {
+			player.messages.add("Not enough wood!");
+			return;
+		}
+		
 		if(required >= 10) required = 10;
 		
 		if(player.wood >= required) {
 			player.wood -= required;
 			player.shelter += required;
+			player.messages.add("You used " + required + " wood.");
 		} else {
+			player.messages.add("You used " + player.wood + " wood.");
 			player.shelter += player.wood;
 			player.wood = 0;
 		}
@@ -181,13 +188,20 @@ public class PlayerActionHandler {
 
 	private void consumeFood() {
 		int required = player.maxHunger - player.hunger;
+
+		if(player.food <= 0) {
+			player.messages.add("Not enough food!");
+			return;
+		}
 		
 		if(required >= 10) required = 10;
 			
 		if(player.food >= required) {
 			player.food -= required;
 			player.hunger += required;
+			player.messages.add("You used " + required + " food.");
 		} else {
+			player.messages.add("You used " + player.wood + " food.");
 			player.hunger += player.food;
 			player.food = 0;
 		}
@@ -196,13 +210,20 @@ public class PlayerActionHandler {
 
 	private void consumeWater() {
 		int required = player.maxThirst - player.thirst;
+
+		if(player.water <= 0) {
+			player.messages.add("Not enough water!");
+			return;
+		}
 		
 		if(required >= 10) required = 10;
 		
 		if(player.water >= required) {
 			player.water -= required;
 			player.thirst += required;
+			player.messages.add("You used " + required + " water.");
 		} else {
+			player.messages.add("You used " + player.wood + " water.");
 			player.thirst += player.water;
 			player.water = 0;
 		}
@@ -210,13 +231,20 @@ public class PlayerActionHandler {
 
 	private void consumeHerbs() {
 		int required = player.maxHealth - player.health;
+
+		if(player.herb <= 0) {
+			player.messages.add("Not enough herb!");
+			return;
+		}
 		
 		if(required >= 10) required = 10;
 		
 		if(player.herb >= required) {
 			player.herb -= required;
 			player.health += required;
+			player.messages.add("You used " + required + " herb.");
 		} else {
+			player.messages.add("You used " + player.wood + " herb.");
 			player.health += player.herb;
 			player.herb = 0;
 		}
