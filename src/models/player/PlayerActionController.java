@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Vector;
 
 import models.world.World;
+import models.world.WorldEvents;
 
 public class PlayerActionController {
 	
@@ -39,6 +40,21 @@ public class PlayerActionController {
 	}
 	
 	public void update() {
-		
+		for (WorldEvents e : world.wEvents) {
+			actionFilter(e);
+		}
+	}
+	
+	private void actionFilter(WorldEvents e) {
+		switch (e) {
+		case SCORCHING_SUN:
+			player.availActions.removeIf(a -> a == PlayerActions.WATER_GATHER);
+			break;
+		case BLACKOUT:
+			player.availActions.removeIf(a -> a == PlayerActions.FOOD_GATHER || a == PlayerActions.WOOD_GATHER || a == PlayerActions.WATER_GATHER || a == PlayerActions.HERBS_GATHER);
+			break;
+		default:
+			break;
+		}
 	}
 }
