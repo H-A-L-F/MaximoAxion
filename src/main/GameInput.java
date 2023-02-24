@@ -47,4 +47,9 @@ public class GameInput extends ControlledThread {
 		gm.input(res);
 	}
 
+	@Override
+	public void stop() {
+		super.stop();
+		in.close();
+	}
 }

@@ -11,7 +11,7 @@ import modules.Lib;
 
 public class Player {
 	// STATS
-	public int maxHealth = 1000;
+	public int maxHealth = 100;
 	public int maxHunger = 100;
 	public int maxThirst = 100;
 	public int maxShelter = 1000;
