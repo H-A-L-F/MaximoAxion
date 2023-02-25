@@ -56,6 +56,10 @@ class WorldEvent extends ControlledThread {
 	
 	@Override
 	public void update() {
+		if(world.gm.player.health <= 0) {
+			this.stop();
+			return;
+		}
 		world.harmPlayer(damage);
 		world.eventMsgs.add("You took " + damage + " from the ongoing event.");
 		world.notifyStatusChange();

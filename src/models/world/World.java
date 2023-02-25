@@ -14,7 +14,7 @@ public class World {
 	private WorldTimeStateController wTimeController;
 	private WorldEventStateController wEventController;
 	
-	private GameMaster gm;
+	public GameMaster gm;
 	
 	public World(GameMaster gm) {
 		super();

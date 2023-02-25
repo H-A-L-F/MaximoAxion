@@ -42,7 +42,6 @@ public class ConsoleInput {
 	public int getIntWMSG(String msg, int min, int max) {
 		int res = -1;
 		do {
-			in = new Scanner(System.in);
 			System.out.printf(msg);
 			try {
 				res = in.nextInt();

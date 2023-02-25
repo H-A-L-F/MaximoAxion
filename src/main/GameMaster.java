@@ -11,21 +11,19 @@ public class GameMaster {
 	
 	public World world;
 	public Player player;
-	private GameInput in;
 	
 	public User user;
-	private Main main;
+	private InputManager im;
 	private Database db = Database.getInstance();
 	
-	public GameMaster(Main main, User user) {
-		this.main = main;
+	public GameMaster(InputManager im, User user) {
+		this.im = im;
 		this.user = user;
 	}
 	
 	public void initGame() {
 		this.world = new World(this);
 		this.player = new Player(this, world);
-		this.in = new GameInput(this);
 	}
 	
 	private synchronized void updateScreen() {
@@ -33,6 +31,11 @@ public class GameMaster {
 //		world.printWorld();
 //		System.out.println();
 //		player.printActions();
+		
+		if(state == GameState.EXIT) {
+			deathScreen();
+			return;
+		}
 		
 		Lib.clear();
 		world.printWorld();
@@ -46,6 +49,19 @@ public class GameMaster {
 		player.printActions();
 	}
 	
+	private void deathScreen() {
+		Lib.clear();
+		System.out.println("\r\n"
+				+ "██╗░░░██╗░█████╗░██╗░░░██╗  ██████╗░██╗███████╗██████╗░\r\n"
+				+ "╚██╗░██╔╝██╔══██╗██║░░░██║  ██╔══██╗██║██╔════╝██╔══██╗\r\n"
+				+ "░╚████╔╝░██║░░██║██║░░░██║  ██║░░██║██║█████╗░░██║░░██║\r\n"
+				+ "░░╚██╔╝░░██║░░██║██║░░░██║  ██║░░██║██║██╔══╝░░██║░░██║\r\n"
+				+ "░░░██║░░░╚█████╔╝╚██████╔╝  ██████╔╝██║███████╗██████╔╝\r\n"
+				+ "░░░╚═╝░░░░╚════╝░░╚═════╝░  ╚═════╝░╚═╝╚══════╝╚═════╝░\r\n");
+		
+		System.out.println("Press enter to continue...");
+	}
+	
 	private void handleInput(int res) {
 		player.handleInput(res);
 		updateScreen();
@@ -55,7 +71,7 @@ public class GameMaster {
 		dayPass();
 	}
 	
-	public void input(String str) {
+	public void handleInput(String str) {
 		int res = Integer.parseInt(str);
 		if(res == 0) {
 			if(state == GameState.PLAYING) pauseGame();
@@ -83,7 +99,7 @@ public class GameMaster {
 	private void stopGame() {
 		world.stop();
 		player.stop();
-		in.stop();
+		state = GameState.EXIT;
 	}
 	
 	public void notifyStatusChange() {
@@ -112,18 +128,20 @@ public class GameMaster {
 	public void play() {
 		startScreen();
 		world.startWorld();
-		in.start();
+//		in.start();
 		state = GameState.PLAYING;
 	}
 	
 	public void exit() {
+		if(state == GameState.EXIT) return;
 		stopGame();
 		db.saveDatabase();
-		main.unpause();
+		im.exitGame();
 	}
 }
 
 enum GameState {
 	PLAYING,
-	PAUSE
+	PAUSE,
+	EXIT
 }

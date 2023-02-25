@@ -10,17 +10,21 @@ import modules.Lib;
 
 public class Main {
 	private volatile boolean paused;
-
-	private ConsoleInput in = new ConsoleInput();
+	private MainState state;
+	private ConsoleInput in;
+	
 	private Database db = Database.getInstance();
 	private GameMaster gm;
-
-	public Main() {
+	private InputManager im;
+	
+	public Main(InputManager im) {
 		this.paused = false;
-		menuHome();
+		this.state = MainState.MAIN;
+		this.im = im;
 	}
 
 	public void printTitle() {
+		Lib.clear();
 		System.out.println(
 				"\r\n" + "███╗░░░███╗░█████╗░██╗░░██╗██╗███╗░░░███╗░█████╗░░█████╗░██╗░░██╗██╗░█████╗░███╗░░██╗\r\n"
 						+ "████╗░████║██╔══██╗╚██╗██╔╝██║████╗░████║██╔══██╗██╔══██╗╚██╗██╔╝██║██╔══██╗████╗░██║\r\n"
@@ -42,7 +46,7 @@ public class Main {
 		int opt = 0;
 
 		printTitle();
-		in.pressEnter();
+//		in.pressEnter();
 		Lib.clear();
 		while (run) {
 			if (paused) {
@@ -83,9 +87,9 @@ public class Main {
 
 		Optional<User> res = db.findUser(username, password);
 		if (res.isPresent()) {
-			gm = new GameMaster(this, res.get());
-			gm.newGame();
+			
 			pause();
+			im.startGame(res.get());
 			return;
 		}
 
@@ -126,9 +130,61 @@ public class Main {
 	    paused = false;
 	    notifyAll();
 	}
-
-	public static void main(String[] args) {
-		new Main();
+	
+//	public void handlePlay(String input) {
+//		if(state == MainState.PLAY_USERNAME) String username = in.getStrWMSG("Enter username [5..20]: ", 5, 20);
+//		String password = in.getStrWMSG("Enter password [5..20]: ", 5, 20);
+//
+//		Optional<User> res = db.findUser(username, password);
+//		if (res.isPresent()) {
+//			gm = new GameMaster(this, res.get());
+//			gm.newGame();
+//			pause();
+//			return;
+//		}
+//
+//		System.out.println("User not found...");
+//		in.pressEnter();
+//	}
+//	
+//	public void handleInput(int input) {
+//		switch (input) {
+//		case 1:
+//			state = MainState.PLAY_USERNAME;
+//			handlePlay();
+//			break;
+//		case 2:
+//			register();
+//			break;
+//		case 3:
+//			highscore();
+//			break;
+//		default:
+//			run = false;
+//			db.saveDatabase();
+//			break;
+//		}
+//	}
+//	
+//	public void handleInput(String input) {
+//		if(state == MainState.MAIN) handleInput(Integer.parseInt(input));
+//		
+//		switch (state) {
+//		case value:
+//			
+//			break;
+//		default:
+//			break;
+//		}
+//	}
+	
+	public void startMain(ConsoleInput in) {
+		this.in = in;
+		menuHome();
 	}
-
+	
+	enum MainState {
+		MAIN,
+		PLAY_USERNAME,
+	}
 }
