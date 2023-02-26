@@ -70,9 +70,19 @@ public class Player {
 	}
 	
 	public void handleDamage(int dmg) {
-		this.health -= dmg;
+		if(shelter > 0) {
+			if(dmg < shelter) shelter -= dmg;
+			else {
+				dmg -= shelter;
+				shelter = 0;
+			}
+		}
 		
-		if (health <= 0) gm.exit();
+		if(dmg > 0) {
+			this.health -= dmg;
+			
+			if (health <= 0) gm.exit();
+		}
 	}
 	
 	public void notifyStatusChange() {
