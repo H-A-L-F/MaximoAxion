@@ -33,7 +33,6 @@ public class GameMaster {
 //		player.printActions();
 		
 		if(state == GameState.EXIT) {
-			deathScreen();
 			return;
 		}
 		
@@ -49,7 +48,7 @@ public class GameMaster {
 		player.printActions();
 	}
 	
-	private void deathScreen() {
+	public void deathScreen() {
 		Lib.clear();
 		System.out.println("\r\n"
 				+ "██╗░░░██╗░█████╗░██╗░░░██╗  ██████╗░██╗███████╗██████╗░\r\n"
@@ -59,7 +58,7 @@ public class GameMaster {
 				+ "░░░██║░░░╚█████╔╝╚██████╔╝  ██████╔╝██║███████╗██████╔╝\r\n"
 				+ "░░░╚═╝░░░░╚════╝░░╚═════╝░  ╚═════╝░╚═╝╚══════╝╚═════╝░\r\n");
 		
-		System.out.println("Press enter to continue...");
+		System.out.println("Press [Enter] to continue..");
 	}
 	
 	private void handleInput(int res) {

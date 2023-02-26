@@ -34,9 +34,11 @@ public class InputManager {
 	public void handleInput(String in) {
 		switch (state) {
 		case MAIN:
+			restartMain();
 			break;
 		case GAME:
 			gm.handleInput(in);
+			break;
 		default:
 			break;
 		}
@@ -46,7 +48,15 @@ public class InputManager {
 		state = InputState.MAIN;
 		in.stop();
 		cIn = new ConsoleInput();
-		main.startMain(cIn);
+//		main.startMain(cIn);
+		gm.deathScreen();
+		cIn.pressEnter();
+		restartMain();
+	}
+	
+	public void restartMain() {
+		main.unpause();
+//		main.restartMain(cIn);
 	}
 	
 	public static void main(String[] args) {

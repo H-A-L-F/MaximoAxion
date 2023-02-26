@@ -52,7 +52,12 @@ public class GameInput extends ControlledThread {
 			in.close();
 		} else {
 			String res = in.getStrWMSG("", 1, gm.player.availActions.size());
-
+			
+			if(!running) {
+				im.restartMain();
+				return;
+			}
+			
 			try {
 				int p = Integer.parseInt(res);
 				if (p >= gm.player.availActions.size())
@@ -60,6 +65,7 @@ public class GameInput extends ControlledThread {
 			} catch (Exception e) {
 			}
 
+			
 			im.handleInput(res);
 		}
 	}

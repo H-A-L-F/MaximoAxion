@@ -24,7 +24,6 @@ public class Main {
 	}
 
 	public void printTitle() {
-		Lib.clear();
 		System.out.println(
 				"\r\n" + "███╗░░░███╗░█████╗░██╗░░██╗██╗███╗░░░███╗░█████╗░░█████╗░██╗░░██╗██╗░█████╗░███╗░░██╗\r\n"
 						+ "████╗░████║██╔══██╗╚██╗██╔╝██║████╗░████║██╔══██╗██╔══██╗╚██╗██╔╝██║██╔══██╗████╗░██║\r\n"
@@ -45,8 +44,6 @@ public class Main {
 		boolean run = true;
 		int opt = 0;
 
-		printTitle();
-//		in.pressEnter();
 		Lib.clear();
 		while (run) {
 			if (paused) {
@@ -60,7 +57,7 @@ public class Main {
 			}
 
 			optHome();
-			opt = in.getIntWMSG(">> ", 1, 5);
+			opt = in.getIntWMSG(">> ", 1, 4);
 
 			switch (opt) {
 			case 1:
@@ -77,7 +74,6 @@ public class Main {
 				db.saveDatabase();
 				break;
 			}
-			Lib.clear();
 		}
 	}
 
@@ -180,6 +176,15 @@ public class Main {
 	
 	public void startMain(ConsoleInput in) {
 		this.in = in;
+		printTitle();
+		in.pressEnter();
+		menuHome();
+	}
+	
+	public void restartMain(ConsoleInput in) {
+		this.in = in;
+//		printTitle();
+//		System.out.println("Press [Enter] to continue..");
 		menuHome();
 	}
 	
