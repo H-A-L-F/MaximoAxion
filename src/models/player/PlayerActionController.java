@@ -53,8 +53,14 @@ public class PlayerActionController {
 			if(e == WorldEvents.SCORCHING_SUN) waterFlag = true;
 		}
 		
-		if(!waterFlag) player.availActions.add(PlayerActions.WATER_GATHER);
-		if(!gatherFlag) player.availActions.addAll(Arrays.asList(PlayerActions.WOOD_GATHER, PlayerActions.FOOD_GATHER, PlayerActions.WATER_GATHER, PlayerActions.HERBS_GATHER));
+		if(!waterFlag && status.contains(ActionStatus.NO_WATER)) {
+			status.remove(ActionStatus.NO_WATER);
+			player.availActions.add(PlayerActions.WATER_GATHER);
+		}
+		if(!gatherFlag && status.contains(ActionStatus.NO_GATHER)) {
+			status.remove(ActionStatus.NO_GATHER);
+			player.availActions.addAll(Arrays.asList(PlayerActions.WOOD_GATHER, PlayerActions.FOOD_GATHER, PlayerActions.WATER_GATHER, PlayerActions.HERBS_GATHER));
+		}
 	}
 	
 	private void actionFilter(WorldEvents e) {
