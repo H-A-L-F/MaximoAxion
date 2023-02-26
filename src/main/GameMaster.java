@@ -58,7 +58,6 @@ public class GameMaster {
 				+ "░░░██║░░░╚█████╔╝╚██████╔╝  ██████╔╝██║███████╗██████╔╝\r\n"
 				+ "░░░╚═╝░░░░╚════╝░░╚═════╝░  ╚═════╝░╚═╝╚══════╝╚═════╝░\r\n");
 		
-		System.out.println("Press [Enter] to continue..");
 	}
 	
 	private void handleInput(int res) {
