@@ -135,7 +135,7 @@ public class PlayerActionHandler {
 		
 		int additionalDmg = Lib.RNG(1, 3);
 		int dmg = additionalDmg + event.getDamage() + damageAddons;
-		String msg = String.format("%syou took %d damage.", event.getMessage(), dmg);
+		String msg = String.format("%sinflicted %d damage.", event.getMessage(), dmg);
 		player.messages.add(msg);
 		
 		player.handleDamage(dmg);
