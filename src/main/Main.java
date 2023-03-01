@@ -23,7 +23,7 @@ public class Main {
 		this.im = im;
 	}
 
-	public void printTitle() {
+	private void printTitle() {
 		System.out.println(
 				"\r\n" + "███╗░░░███╗░█████╗░██╗░░██╗██╗███╗░░░███╗░█████╗░░█████╗░██╗░░██╗██╗░█████╗░███╗░░██╗\r\n"
 						+ "████╗░████║██╔══██╗╚██╗██╔╝██║████╗░████║██╔══██╗██╔══██╗╚██╗██╔╝██║██╔══██╗████╗░██║\r\n"
@@ -37,14 +37,14 @@ public class Main {
 		System.out.println("1. Play");
 		System.out.println("2. Register");
 		System.out.println("3. Highscore");
-		System.out.println("4. Exit");
+		System.out.println("4. How to play");
+		System.out.println("5. Exit");
 	}
 
 	private void menuHome() {
 		boolean run = true;
 		int opt = 0;
 
-		Lib.clear();
 		while (run) {
 			if (paused) {
 				synchronized (this) {
@@ -56,6 +56,8 @@ public class Main {
 				}
 			}
 
+			Lib.clear();
+			printTitle();
 			optHome();
 			opt = in.getIntWMSG(">> ", 1, 4);
 
@@ -69,11 +71,16 @@ public class Main {
 			case 3:
 				highscore();
 				break;
+			case 4:
+				howToPlay();
+				break;
 			default:
 				run = false;
 				db.saveDatabase();
 				break;
 			}
+			
+			
 		}
 	}
 
@@ -116,6 +123,10 @@ public class Main {
 		System.out.printf("\n\n\n");
 
 		in.pressEnter();
+	}
+	
+	private void howToPlay() {
+		
 	}
 	
 	public synchronized void pause() {
@@ -176,8 +187,6 @@ public class Main {
 	
 	public void startMain(ConsoleInput in) {
 		this.in = in;
-		printTitle();
-		in.pressEnter();
 		menuHome();
 	}
 	
