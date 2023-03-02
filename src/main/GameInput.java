@@ -48,26 +48,18 @@ public class GameInput extends ControlledThread {
 //		
 //		gm.input(res);
 
-		if(!running) {
-			in.close();
-		} else {
-			String res = in.getStrWMSG("", 1, gm.player.availActions.size());
-			
-			if(!running) {
-				im.restartMain();
-				return;
-			}
-			
-			try {
-				int p = Integer.parseInt(res);
-				if (p >= gm.player.availActions.size())
-					return;
-			} catch (Exception e) {
-			}
+		String res = in.getStrWMSG("", 1, gm.player.availActions.size());
 
-			
-			im.handleInput(res);
+		if (!running) return;
+
+		try {
+			int p = Integer.parseInt(res);
+			if (p >= gm.player.availActions.size())
+				return;
+		} catch (Exception e) {
 		}
+
+		im.handleInput(res);
 	}
 
 }
