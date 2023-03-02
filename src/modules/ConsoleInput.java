@@ -46,9 +46,13 @@ public class ConsoleInput {
 			try {
 				res = in.nextInt();
 			} catch (Exception e) {
-				System.out.println("Input a number");
+//				System.out.println("Input a number");
 			}
-			in.nextLine();
+			try {
+				in.nextLine();
+			} catch (Exception e) {
+				return -1;
+			}
 		} while (res < min || res > max);
 		return res;
 	}

@@ -1,7 +1,7 @@
 package modules;
 
 public abstract class ControlledThread implements Runnable {
-	private Thread t;
+	public Thread t;
 	private String threadName;
 	protected volatile boolean running = true;
 	protected volatile boolean paused = false;

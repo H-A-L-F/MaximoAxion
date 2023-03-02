@@ -126,7 +126,14 @@ public class Main {
 	}
 	
 	private void howToPlay() {
+		System.out.println();
+		System.out.println("This game goal is to survive as long as possible.");
+		System.out.println("However there will be disaster and event that will deal you damage.");
+		System.out.println("In order to survive you must gather resources, build shelter, and never go out at night.");
+		System.out.println("Goodluck! you gon need that");
+		System.out.println();
 		
+		in.pressEnter();
 	}
 	
 	public synchronized void pause() {
