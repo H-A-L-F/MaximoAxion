@@ -21,8 +21,7 @@ public class Database {
 	private Vector<User> users;
 	private static Database instance;
 
-	private final String USER_FILE_NAME = "save.txt";
-	private URI USER_FILE_URI;
+	private String USER_FILE_URI = "./res/save.txt";
 	private File USER_FILE;
 
 	private Database() {
@@ -43,7 +42,6 @@ public class Database {
 	}
 	
 	private void initialize() throws URISyntaxException {
-		USER_FILE_URI = getClass().getResource("/" + USER_FILE_NAME).toURI();
 		USER_FILE = new File(USER_FILE_URI);
 	}
 

@@ -59,7 +59,7 @@ public class Main {
 			Lib.clear();
 			printTitle();
 			optHome();
-			opt = in.getIntWMSG(">> ", 1, 4);
+			opt = in.getIntWMSG(">> ", 1, 5);
 
 			switch (opt) {
 			case 1:

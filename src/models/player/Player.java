@@ -14,7 +14,7 @@ public class Player {
 	public int maxHealth = 100;
 	public int maxHunger = 100;
 	public int maxThirst = 100;
-	public int maxShelter = 1000;
+	public int maxShelter = 100;
 	public int health;
 	public int hunger;
 	public int thirst;
