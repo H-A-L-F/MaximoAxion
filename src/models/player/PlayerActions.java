@@ -47,7 +47,9 @@ public enum PlayerActions {
 	}
 	
 	public static Vector<PlayerActions> getWoodActions() {
-		return new Vector<>(Arrays.asList(WOOD_GATHER, BUILD_SHELTER, IMPROVE_SHELTER));
+		// TEMPORARY REMOVE THE IMPROVE SHELTER
+//		return new Vector<>(Arrays.asList(WOOD_GATHER, BUILD_SHELTER, IMPROVE_SHELTER));
+		return new Vector<>(Arrays.asList(WOOD_GATHER, BUILD_SHELTER));
 	}
 	
 	public static Vector<PlayerActions> getFoodActions() {
