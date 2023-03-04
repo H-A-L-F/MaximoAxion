@@ -74,9 +74,11 @@ public class Main {
 			case 4:
 				howToPlay();
 				break;
-			default:
+			case 5:
 				run = false;
 				db.saveDatabase();
+				break;
+			default:
 				break;
 			}
 			

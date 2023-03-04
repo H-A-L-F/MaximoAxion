@@ -51,6 +51,7 @@ public class ConsoleInput {
 			try {
 				in.nextLine();
 			} catch (Exception e) {
+				in = new Scanner(System.in);
 				return -1;
 			}
 		} while (res < min || res > max);
