@@ -52,6 +52,10 @@ public class User {
 		return day;
 	}
 
+	public Integer getDayWrapped() {
+		return day;
+	}
+	
 	public void setDay(int day) {
 		this.day = day;
 	}

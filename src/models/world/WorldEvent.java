@@ -61,7 +61,7 @@ class WorldEvent extends ControlledThread {
 			return;
 		}
 		world.harmPlayer(damage);
-		world.eventMsgs.add("You took " + damage + " from the ongoing event.");
+		world.eventMsgs.add("You took " + damage + " damage from the ongoing event.");
 		world.notifyStatusChange();
 	}
 }

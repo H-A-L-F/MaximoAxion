@@ -102,6 +102,10 @@ public class Database {
 	}
 
 	public List<User> getTopScore(int amt) {
-		return users.stream().sorted(Comparator.comparingInt(User::getDay)).limit(amt).collect(Collectors.toList());
+//		return users.stream().sorted(Comparator.comparingInt(User::getDay)).limit(amt).collect(Collectors.toList());
+		return users.stream()
+                .sorted(Comparator.comparingInt(User::getDayWrapped).reversed())
+                .limit(3)
+                .collect(Collectors.toList());
 	}
 }
