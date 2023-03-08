@@ -1,7 +1,7 @@
 package modules;
 
 public abstract class StateTask<T> extends ControlledThread {
-	public int timePassed;
+	public double timePassed;
 	
 	public StateTask(String threadName) {
 		super(threadName);

@@ -158,7 +158,7 @@ public class WorldEventStateController extends WorldStateController<WorldEvents>
 
 		@Override
 		public void update() {
-			timePassed++;
+			timePassed += 0.5;
 			
 			int rand = Lib.RNG(1, 100);
 			if(rand <= timePassed) {
