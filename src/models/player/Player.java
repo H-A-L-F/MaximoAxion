@@ -71,7 +71,10 @@ public class Player {
 	
 	public void handleDamage(int dmg) {
 		if(shelter > 0) {
-			if(dmg < shelter) shelter -= dmg;
+			if(dmg < shelter) {
+				shelter -= dmg;
+				return;
+			}
 			else {
 				dmg -= shelter;
 				shelter = 0;
