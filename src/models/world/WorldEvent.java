@@ -25,7 +25,7 @@ class WorldEvent extends ControlledThread {
 			this.damage = Lib.RNG(1, 5);
 			break;
 		case MASSIVE_THUNDERSTORM:
-			this.damage = Lib.RNG(3, 7);
+			this.damage = Lib.RNG(4, 5);
 			break;
 		case MASSIVE_BIRD_MIGRATION:
 			this.damage = Lib.RNG(1, 3);
@@ -34,16 +34,16 @@ class WorldEvent extends ControlledThread {
 			this.damage = Lib.RNG(1, 4);
 			break;
 		case SOLAR_ECLIPSE:
-			this.damage = Lib.RNG(4, 8);
+			this.damage = Lib.RNG(2, 5);
 			break;
 		case BLOOD_MOON:
-			this.damage = Lib.RNG(5, 10);
+			this.damage = Lib.RNG(1, 4);
 			break;
 		case MASSIVE_BATS_INVASION:
-			this.damage = Lib.RNG(3, 5);
+			this.damage = Lib.RNG(1, 2);
 			break;
 		case ALIEN_INVASION:
-			this.damage = Lib.RNG(5, 8);
+			this.damage = Lib.RNG(3, 5);
 			break;
 		default:
 			break;
