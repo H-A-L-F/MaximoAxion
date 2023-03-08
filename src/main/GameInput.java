@@ -46,7 +46,7 @@ public class GameInput extends ControlledThread {
 			
 			try {
 				int p = Integer.parseInt(res);
-				if (p >= gm.player.availActions.size())
+				if (p > gm.player.availActions.size())
 					return;
 			} catch (Exception e) {
 			}
