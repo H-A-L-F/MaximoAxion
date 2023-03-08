@@ -141,4 +141,12 @@ public class Player {
 		String message = String.format("Enter 0 to pause\nWhat do you want to do? [1..%d]: ", availActions.size());
 		System.out.printf(message);
 	}
+	
+	public void addGather() {
+		actController.addGather();
+	}
+	
+	public void addWaterGather() {
+		actController.addWaterGather();
+	}
 }

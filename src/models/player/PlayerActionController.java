@@ -45,22 +45,22 @@ public class PlayerActionController {
 	}
 	
 	public void update() {
-		boolean waterFlag = false;
-		boolean gatherFlag = false;
+//		boolean waterFlag = false;
+//		boolean gatherFlag = false;
 		for (WorldEvents e : world.wEvents) {
 			actionFilter(e);
-			if(e == WorldEvents.SOLAR_ECLIPSE || e == WorldEvents.BLACKOUT) gatherFlag = true;
-			if(e == WorldEvents.SCORCHING_SUN) waterFlag = true;
+//			if(e == WorldEvents.SOLAR_ECLIPSE || e == WorldEvents.BLACKOUT) gatherFlag = true;
+//			if(e == WorldEvents.SCORCHING_SUN) waterFlag = true;
 		}
 		
-		if(!waterFlag && status.contains(ActionStatus.NO_WATER)) {
-			status.remove(ActionStatus.NO_WATER);
-			player.availActions.add(PlayerActions.WATER_GATHER);
-		}
-		if(!gatherFlag && status.contains(ActionStatus.NO_GATHER)) {
-			status.remove(ActionStatus.NO_GATHER);
-			player.availActions.addAll(Arrays.asList(PlayerActions.WOOD_GATHER, PlayerActions.FOOD_GATHER, PlayerActions.WATER_GATHER, PlayerActions.HERBS_GATHER));
-		}
+//		if(!waterFlag && status.contains(ActionStatus.NO_WATER)) {
+//			status.remove(ActionStatus.NO_WATER);
+//			player.availActions.add(PlayerActions.WATER_GATHER);
+//		}
+//		if(!gatherFlag && status.contains(ActionStatus.NO_GATHER)) {
+//			status.remove(ActionStatus.NO_GATHER);
+//			player.availActions.addAll(Arrays.asList(PlayerActions.WOOD_GATHER, PlayerActions.FOOD_GATHER, PlayerActions.WATER_GATHER, PlayerActions.HERBS_GATHER));
+//		}
 	}
 	
 	private void actionFilter(WorldEvents e) {
@@ -80,6 +80,14 @@ public class PlayerActionController {
 		default:
 			break;
 		}
+	}
+	
+	public void addGather() {
+		player.availActions.addAll(PlayerActions.getGatherActions());
+	}
+	
+	public void addWaterGather() {
+		player.availActions.add(PlayerActions.WATER_GATHER);
 	}
 	
 	enum ActionStatus {

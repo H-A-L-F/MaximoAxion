@@ -68,6 +68,10 @@ public enum PlayerActions {
 		return new Vector<>(Arrays.asList(ATTACK, DEFEND, FLEE));
 	}
 	
+	public static Vector<PlayerActions> getGatherActions() {
+		return new Vector<>(Arrays.asList(WOOD_GATHER, FOOD_GATHER, WATER_GATHER, HERBS_GATHER));
+	}
+	
 	public static Map<ActionTypes, Vector<PlayerActions>> getActions() {
 		return Map.ofEntries(
 				  new AbstractMap.SimpleEntry<ActionTypes, Vector<PlayerActions>>(ActionTypes.FREE, getFreeActions()),
