@@ -121,7 +121,7 @@ public class WorldEventStateController extends WorldStateController<WorldEvents>
 	
 	private void init() {
 		this.timedEvent = new Vector<>();
-		this.timedEventDuration = 10;
+		this.timedEventDuration = 5;
 		this.procChance = 5;
 		this.procEvent = WorldEvents.WORLD_NORMAL;
 		this.time = EventTypes.DAY;

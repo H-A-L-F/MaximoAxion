@@ -118,6 +118,10 @@ public class GameMaster {
 		player.printActions();
 	}
 	
+	private void updateUserScore() {
+		user.setDay(world.day);
+	}
+	
 	public void newGame() {
 		initGame();
 		play();
@@ -133,6 +137,7 @@ public class GameMaster {
 	public void exit() {
 		if(state == GameState.EXIT) return;
 		stopGame();
+		updateUserScore();
 		db.saveDatabase();
 		im.exitGame();
 	}
