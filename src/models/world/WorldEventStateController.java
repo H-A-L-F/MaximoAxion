@@ -80,9 +80,21 @@ public class WorldEventStateController extends WorldStateController<WorldEvents>
 //		tp.taskAtRateAndDuration(0, 1, timedEventDuration, e);
 		ScheduledFuture<?> scheduledFuture = tp.scheduleTaskAtRate(0, 1, eClone);
 		if(eClone.getEvent() == WorldEvents.SOLAR_ECLIPSE || eClone.getEvent() == WorldEvents.BLACKOUT) {
-			world.gm.player.addGather();
+			tp.schedule(timedEventDuration, () -> {
+				eClone.stop();
+				world.gm.player.addGather();
+				scheduledFuture.cancel(true);
+				world.wEvents.remove(eClone.getEvent());
+				timedEvent.remove(eClone);
+			});
 		} else if(eClone.getEvent() == WorldEvents.SCORCHING_SUN) {
-			world.gm.player.addWaterGather();
+			tp.schedule(timedEventDuration, () -> {
+				eClone.stop();
+				world.gm.player.addWaterGather();
+				scheduledFuture.cancel(true);
+				world.wEvents.remove(eClone.getEvent());
+				timedEvent.remove(eClone);
+			});
 		} else {
 			tp.schedule(timedEventDuration, () -> {
 				eClone.stop();
