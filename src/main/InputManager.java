@@ -5,14 +5,14 @@ import modules.ConsoleInput;
 
 public class InputManager {
 	private ConsoleInput cIn;
-	private GameInput in;
+	public GameInput in;
 	private InputState state;
 	
-	private Main main;
-	private GameMaster gm;
+	public Main main;
+	public GameMaster gm;
 	
 	public InputManager() {
-		cIn = new ConsoleInput();
+		cIn = ConsoleInput.getInstance();
 		main = new Main(this);
 		
 		start();
@@ -46,17 +46,23 @@ public class InputManager {
 	
 	public void exitGame() {
 		state = InputState.MAIN;
-		in.stop();
-		cIn = new ConsoleInput();
-//		main.startMain(cIn);
-		gm.deathScreen();
-		cIn.pressEnter();
 		restartMain();
 	}
 	
-	public void restartMain() {
+	public void closeInput() {
+		gm.deathScreen();
+		in.stop();
+	}
+	
+	private void restartMain() {
+		System.out.println("MASUK");
+		in.stop();
 		main.unpause();
 //		main.restartMain(cIn);
+	}
+	
+	public void notifyMain() {
+		main.notifyAll();
 	}
 	
 	public static void main(String[] args) {

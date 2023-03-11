@@ -58,6 +58,7 @@ public class GameMaster {
 				+ "░░░██║░░░╚█████╔╝╚██████╔╝  ██████╔╝██║███████╗██████╔╝\r\n"
 				+ "░░░╚═╝░░░░╚════╝░░╚═════╝░  ╚═════╝░╚═╝╚══════╝╚═════╝░\r\n");
 		
+		System.out.println("Press Enter..");
 	}
 	
 	private void handleInput(int res) {
@@ -139,7 +140,10 @@ public class GameMaster {
 		stopGame();
 		updateUserScore();
 		db.saveDatabase();
-		im.exitGame();
+		deathScreen();
+		im.in.update();
+//		im.closeInput();
+//		im.exitGame();
 	}
 }
 

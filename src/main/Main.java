@@ -14,7 +14,6 @@ public class Main {
 	private ConsoleInput in;
 	
 	private Database db = Database.getInstance();
-	private GameMaster gm;
 	private InputManager im;
 	
 	public Main(InputManager im) {
@@ -41,7 +40,7 @@ public class Main {
 		System.out.println("5. Exit");
 	}
 
-	private void menuHome() {
+	public void menuHome() {
 		boolean run = true;
 		int opt = 0;
 

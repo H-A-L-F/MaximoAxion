@@ -34,21 +34,23 @@ public class GameInput extends ControlledThread {
 
 	@Override
 	public void update() {
-		if(!running) {
-			in.close();
+		String res = in.getStrWMSG("");
+		
+//		if(!running) {
+//			System.out.println("DALAM UPDATE INPUT");
+////			im.main.menuHome();
+//			return;
+//		}
+		
+		if(!gm.player.isAlive) {
+			im.exitGame();
 		} else {
-			String res = in.getStrWMSG("", 1, gm.player.availActions.size());
-			
-			if(!running) {
-				im.restartMain();
-				return;
-			}
-			
 			try {
 				int p = Integer.parseInt(res);
-				if (p > gm.player.availActions.size())
+				if (p > gm.player.availActions.size() || p < 1)
 					return;
 			} catch (Exception e) {
+				return;
 			}
 
 			

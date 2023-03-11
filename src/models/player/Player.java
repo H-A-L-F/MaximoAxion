@@ -34,6 +34,7 @@ public class Player {
 	
 	// ATTRIBUTES
 	public int damageAddons;
+	public boolean isAlive;
 	
 	private GameMaster gm;
 	private World world;
@@ -57,6 +58,7 @@ public class Player {
 		this.actions = PlayerActions.getActions();
 		
 		this.damageAddons = 0;
+		this.isAlive = true;
 		
 		this.gm = gm;
 		this.world = world;
@@ -84,7 +86,10 @@ public class Player {
 		if(dmg > 0) {
 			this.health -= dmg;
 			
-			if (health <= 0) gm.exit();
+			if (health <= 0) {
+				isAlive = false;
+				gm.exit();
+			}
 		}
 	}
 	

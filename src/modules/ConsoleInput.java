@@ -4,18 +4,26 @@ import java.util.Scanner;
 
 public class ConsoleInput {
 	Scanner in;
+	
+	private static ConsoleInput instance;
 
-	public ConsoleInput() {
+	private ConsoleInput() {
 		in = new Scanner(System.in);
 	}
 	
-	public void close() {
-		in.close();
+	public static ConsoleInput getInstance() {
+		if(instance == null) instance = new ConsoleInput();
+		return instance;
 	}
 	
 	public void pressEnter() {
 		System.out.println("Press [Enter] to continue..");
-		in.nextLine();
+		try {
+			in.nextLine();
+		} catch (Exception e) {
+			in = new Scanner(System.in);
+			in.nextLine();
+		}
 	}
 
 	public int getInt(int min, int max) {
@@ -44,15 +52,11 @@ public class ConsoleInput {
 		do {
 			System.out.printf(msg);
 			try {
-				res = in.nextInt();
-			} catch (Exception e) {
-//				System.out.println("Input a number");
-			}
-			try {
-				in.nextLine();
+				res = Integer.parseInt(in.nextLine());
 			} catch (Exception e) {
 				in = new Scanner(System.in);
-				return -1;
+				res = -1;
+				res = Integer.parseInt(in.nextLine());
 			}
 		} while (res < min || res > max);
 		return res;
@@ -82,7 +86,11 @@ public class ConsoleInput {
 		int len = res.length();
 		do {
 			System.out.printf(msg);
-			res = in.nextLine();
+			try {
+				res = in.nextLine();
+			} catch (Exception e) {
+				in = new Scanner(System.in);
+			}
 			len = res.length();
 		} while (len < min || len > max);
 		return res;
@@ -100,5 +108,28 @@ public class ConsoleInput {
 			}
 		}
 		return res;
+	}
+	
+	public int getIntWMSG(String msg) {
+		while(true) {
+			try {
+				System.out.printf(msg);
+				int res = Integer.parseInt(in.nextLine());
+				return res;
+			} catch (Exception e) {
+			}
+		}
+	}
+	
+	public String getStrWMSG(String msg) {
+		while(true) {
+			try {
+				System.out.printf(msg);
+				String res = in.nextLine();
+				return res;
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
 	}
 }
