@@ -37,6 +37,8 @@ public class GameMaster {
 		}
 		
 		Lib.clear();
+		world.printDay();
+		System.out.println();
 		world.printWorld();
 		System.out.println();
 		player.printMessages();

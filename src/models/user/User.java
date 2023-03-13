@@ -57,7 +57,8 @@ public class User {
 	}
 	
 	public void setDay(int day) {
-		this.day = day;
+		if(this.day > day) this.day = day;
+		return;
 	}
 	
 }
